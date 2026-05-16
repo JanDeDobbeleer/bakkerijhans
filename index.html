@@ -1,0 +1,2554 @@
+<!doctype html>
+<html lang="nl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Ambachtelijke Bakkerij Hans | Lactosevrij &amp; Plantaardig
+        </title>
+        <meta
+            name="description"
+            content="(H)eerlijke ambachtelijke bakkerijproducten, volledig lactosevrij en melkeiwitvrij. Brood, patisserie en feestgebak, bijna 100% op plantaardige basis in Tielt-Winge, alle allergenen duidelijk aangegeven."
+        />
+        <meta
+            name="keywords"
+            content="lactosevrij bakkerij, melkeiwitvrij, ambachtelijk, speltbrood, plantaardig gebak, Tielt-Winge, Vlaams-Brabant, bakkerij hans"
+        />
+        <meta
+            property="og:title"
+            content="Ambachtelijke Bakkerij Hans | Lactosevrij &amp; Plantaardig"
+        />
+        <meta
+            property="og:description"
+            content="(H)eerlijke ambachtelijke bakkerijproducten, volledig lactosevrij en melkeiwitvrij."
+        />
+        <meta property="og:url" content="https://bakkerijhans.be" />
+        <meta property="og:site_name" content="Bakkerij Hans" />
+        <meta property="og:locale" content="nl_BE" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://bakkerijhans.be" />
+        <link href="assets/fonts/fonts.css" rel="stylesheet" />
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Bakery",
+                "name": "Bakkerij Hans",
+                "slogan": "Ambachtelijke Bakkerij Hans | Lactosevrij & Plantaardig",
+                "description": "(H)eerlijke ambachtelijke bakkerijproducten, volledig lactosevrij en melkeiwitvrij. Brood, patisserie en feestgebak, bijna 100% op plantaardige basis in Tielt-Winge, alle allergenen duidelijk aangegeven.",
+                "url": "https://bakkerijhans.be",
+                "telephone": "+3216501153",
+                "email": "hans@bakkerijhans.be",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Haksbergstraat 43",
+                    "addressLocality": "Tielt-Winge",
+                    "postalCode": "3390",
+                    "addressCountry": "BE"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 50.8913,
+                    "longitude": 4.8897
+                },
+                "openingHoursSpecification": [
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": "Wednesday",
+                        "opens": "16:00",
+                        "closes": "20:00"
+                    },
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": "Saturday",
+                        "opens": "15:30",
+                        "closes": "19:00"
+                    }
+                ],
+                "sameAs": [
+                    "https://www.facebook.com/BakkerijHans/",
+                    "http://www.handmadeinbelgium.com/bakkerijhans/"
+                ],
+                "servesCuisine": ["Plantaardig", "Lactosevrij", "Vegan"],
+                "priceRange": "€€"
+            }
+        </script>
+
+        <style>
+            /* ============================================================
+       CSS VARIABLES
+    ============================================================ */
+            :root {
+                --primary: #d4883d;
+                --primary-dark: #b26a2a;
+                --primary-light: #e4b07a;
+                --cream: #faf6ee;
+                --cream-dark: #f2ebdf;
+                --gold: #8ab07a;
+                --gold-dark: #6f9360;
+                --bark: #2c2c2c;
+                --bark-light: #565656;
+                --border: #d8cdbb;
+                --danger: #dc2626;
+                --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+                --font-serif:
+                    "DM Serif Display", Georgia, "Times New Roman", serif;
+            }
+
+            /* ============================================================
+       RESET & BASE
+    ============================================================ */
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                background: var(--cream);
+                color: var(--bark);
+                font-family: var(--font-sans);
+                line-height: 1.6;
+                -webkit-font-smoothing: antialiased;
+            }
+            [id] {
+                scroll-margin-top: 80px;
+            }
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+            address {
+                font-style: normal;
+            }
+
+            /* ============================================================
+       LAYOUT HELPERS
+    ============================================================ */
+            .container {
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 0 1rem;
+            }
+            @media (min-width: 640px) {
+                .container {
+                    padding: 0 1.5rem;
+                }
+            }
+            @media (min-width: 1024px) {
+                .container {
+                    padding: 0 2rem;
+                }
+            }
+
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+            }
+
+            /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(24px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            @keyframes bounceY {
+                0%,
+                100% {
+                    transform: translateX(-50%) translateY(0);
+                }
+                50% {
+                    transform: translateX(-50%) translateY(-6px);
+                }
+            }
+
+            /* ============================================================
+       SECTION COMMON
+    ============================================================ */
+            .section-label {
+                display: inline-block;
+                background: rgba(212, 136, 61, 0.1);
+                color: var(--primary);
+                padding: 0.375rem 1rem;
+                border-radius: 9999px;
+                font-size: 0.875rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                letter-spacing: 0.05em;
+            }
+            .section-heading {
+                font-family: var(--font-serif);
+                font-size: 2.5rem;
+                color: var(--bark);
+                font-weight: 700;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+            @media (min-width: 1024px) {
+                .section-heading {
+                    font-size: 3rem;
+                }
+            }
+            .section-heading .accent {
+                color: var(--primary);
+            }
+            .section-sub {
+                color: rgba(44, 44, 44, 0.65);
+                max-width: 36rem;
+                margin: 0 auto;
+                line-height: 1.75;
+            }
+            .section-header {
+                text-align: center;
+                margin-bottom: 3.5rem;
+            }
+
+            /* ============================================================
+       NAVBAR
+    ============================================================ */
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 50;
+                transition:
+                    background 0.3s,
+                    box-shadow 0.3s;
+            }
+            .navbar.scrolled {
+                background: rgba(44, 44, 44, 0.95);
+                backdrop-filter: blur(12px);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            }
+            .nav-inner {
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 0 1rem;
+            }
+            @media (min-width: 640px) {
+                .nav-inner {
+                    padding: 0 1.5rem;
+                }
+            }
+            @media (min-width: 1024px) {
+                .nav-inner {
+                    padding: 0 2rem;
+                }
+            }
+            .nav-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 4rem;
+            }
+            @media (min-width: 1024px) {
+                .nav-row {
+                    height: 5rem;
+                }
+            }
+
+            /* Logo */
+            .nav-logo {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+            .nav-logo-icon {
+                width: 2.5rem;
+                height: 2.5rem;
+                background: var(--primary);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.2s;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                flex-shrink: 0;
+            }
+            .nav-logo-icon:hover {
+                background: var(--primary-light);
+            }
+            .nav-logo-icon svg {
+                width: 1.25rem;
+                height: 1.25rem;
+                color: var(--cream);
+            }
+            .nav-logo-text {
+                display: flex;
+                flex-direction: column;
+                line-height: 1;
+            }
+            .nav-logo-name {
+                font-family: var(--font-serif);
+                font-weight: 700;
+                font-size: 1.125rem;
+                color: var(--primary-dark);
+                transition: color 0.3s;
+            }
+            .navbar.scrolled .nav-logo-name {
+                color: var(--cream);
+            }
+            .nav-logo-tagline {
+                font-size: 0.75rem;
+                letter-spacing: 0.05em;
+                color: var(--primary-dark);
+                transition: color 0.3s;
+            }
+            .navbar.scrolled .nav-logo-tagline {
+                color: var(--cream);
+            }
+
+            /* Desktop links */
+            .nav-links {
+                display: none;
+                align-items: center;
+                gap: 0.25rem;
+            }
+            @media (min-width: 1024px) {
+                .nav-links {
+                    display: flex;
+                }
+            }
+            .nav-links a {
+                color: rgba(178, 106, 42, 0.8);
+                font-size: 0.875rem;
+                font-weight: 500;
+                padding: 0.5rem 0.75rem;
+                border-radius: 0.375rem;
+                transition:
+                    color 0.2s,
+                    background 0.2s;
+            }
+            .navbar.scrolled .nav-links a {
+                color: rgba(250, 246, 238, 0.8);
+            }
+            .nav-links a:hover {
+                color: var(--gold);
+                background: rgba(250, 246, 238, 0.1);
+            }
+
+            /* Hamburger */
+            .nav-burger {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2.5rem;
+                height: 2.5rem;
+                border: none;
+                background: none;
+                cursor: pointer;
+                color: var(--primary);
+                border-radius: 0.375rem;
+                transition: color 0.3s;
+            }
+            .navbar.scrolled .nav-burger {
+                color: var(--cream);
+            }
+            @media (min-width: 1024px) {
+                .nav-burger {
+                    display: none;
+                }
+            }
+            .nav-bestel-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.35rem;
+                margin-left: 0.5rem;
+                padding: 0.5rem 1.1rem;
+                background: var(--primary);
+                color: #fff !important;
+                border-radius: 2rem;
+                font-size: 0.875rem;
+                font-weight: 600;
+                text-decoration: none;
+                transition:
+                    background 0.2s,
+                    transform 0.15s;
+            }
+            .nav-bestel-btn:hover {
+                background: var(--primary-dark) !important;
+                transform: translateY(-1px);
+                color: #fff !important;
+            }
+            .m-bestel-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.4rem;
+                margin-top: 0.5rem;
+                padding: 0.75rem 1.5rem;
+                background: var(--primary);
+                color: #fff;
+                border-radius: 2rem;
+                font-size: 1rem;
+                font-weight: 600;
+                text-decoration: none;
+                transition: background 0.2s;
+            }
+            .m-bestel-btn:hover {
+                background: var(--primary-dark);
+            }
+            .nav-burger svg {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+
+            /* Mobile drawer */
+            .mobile-menu {
+                display: none;
+                background: rgba(44, 44, 44, 0.97);
+                backdrop-filter: blur(12px);
+                border-top: 1px solid rgba(250, 246, 238, 0.1);
+            }
+            .mobile-menu.open {
+                display: block;
+            }
+            .mobile-menu-inner {
+                padding: 0.5rem 1rem 1.5rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+            .mobile-menu a {
+                display: block;
+                color: rgba(250, 246, 238, 0.8);
+                font-size: 1rem;
+                font-weight: 500;
+                padding: 0.75rem 1rem;
+                border-radius: 0.5rem;
+                border-bottom: 1px solid rgba(250, 246, 238, 0.05);
+                transition:
+                    color 0.2s,
+                    background 0.2s;
+            }
+            .mobile-menu a:hover {
+                color: var(--gold);
+                background: rgba(250, 246, 238, 0.1);
+            }
+
+            /* ============================================================
+       HERO
+    ============================================================ */
+            .hero {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: var(--cream-dark);
+                position: relative;
+                overflow: hidden;
+            }
+            .hero-content {
+                max-width: 56rem;
+                margin: 0 auto;
+                padding: 8rem 1rem;
+                text-align: center;
+                animation: fadeInUp 0.9s ease-out;
+            }
+            @media (min-width: 1024px) {
+                .hero-content {
+                    padding: 10rem 2rem;
+                }
+            }
+            .hero-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                border: 1px solid rgba(212, 136, 61, 0.25);
+                background: rgba(212, 136, 61, 0.08);
+                color: var(--primary);
+                padding: 0.5rem 1.25rem;
+                border-radius: 9999px;
+                font-size: 0.875rem;
+                font-weight: 600;
+                margin-bottom: 2.5rem;
+                letter-spacing: 0.05em;
+            }
+            .hero h1 {
+                font-family: var(--font-serif);
+                font-size: 3rem;
+                line-height: 1.1;
+                margin-bottom: 1.75rem;
+                color: var(--bark);
+            }
+            @media (min-width: 640px) {
+                .hero h1 {
+                    font-size: 3.75rem;
+                }
+            }
+            @media (min-width: 1024px) {
+                .hero h1 {
+                    font-size: 4.5rem;
+                }
+            }
+            .hero h1 .accent {
+                color: var(--primary);
+            }
+            .hero-sub {
+                font-size: 1.125rem;
+                max-width: 36rem;
+                margin: 0 auto 3rem;
+                line-height: 1.75;
+                color: var(--bark-light);
+            }
+            @media (min-width: 640px) {
+                .hero-sub {
+                    font-size: 1.25rem;
+                }
+            }
+
+            .hero-ctas {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                justify-content: center;
+                align-items: center;
+            }
+            @media (min-width: 640px) {
+                .hero-ctas {
+                    flex-direction: row;
+                }
+            }
+
+            .btn-primary {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.625rem;
+                padding: 1rem 2rem;
+                border-radius: 9999px;
+                font-size: 1rem;
+                font-weight: 600;
+                background: var(--primary);
+                color: var(--cream);
+                transition:
+                    background 0.2s,
+                    transform 0.15s;
+                box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+            }
+            .btn-primary:hover {
+                background: var(--primary-dark);
+                transform: scale(1.04);
+            }
+            .btn-primary svg {
+                width: 1.25rem;
+                height: 1.25rem;
+            }
+
+            .btn-outline {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.625rem;
+                padding: 1rem 2rem;
+                border-radius: 9999px;
+                font-size: 1rem;
+                font-weight: 600;
+                border: 2px solid rgba(44, 44, 44, 0.2);
+                color: var(--bark);
+                transition:
+                    border-color 0.2s,
+                    color 0.2s,
+                    transform 0.15s;
+            }
+            .btn-outline:hover {
+                border-color: var(--primary);
+                color: var(--primary);
+                transform: scale(1.04);
+            }
+            .btn-outline svg {
+                width: 1.25rem;
+                height: 1.25rem;
+            }
+
+            .hero-trust {
+                margin-top: 3.5rem;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem 2rem;
+                font-size: 0.875rem;
+                color: var(--bark-light);
+                animation: fadeIn 0.6s ease-out 0.8s both;
+            }
+            .hero-trust span {
+                display: flex;
+                align-items: center;
+                gap: 0.375rem;
+            }
+            .trust-dot {
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background: rgba(212, 136, 61, 0.6);
+                flex-shrink: 0;
+            }
+
+            .scroll-cue {
+                position: absolute;
+                bottom: 2rem;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.375rem;
+                color: rgba(44, 44, 44, 0.35);
+                animation: bounceY 2s ease-in-out infinite;
+            }
+            .scroll-cue span {
+                font-size: 0.625rem;
+                text-transform: uppercase;
+                letter-spacing: 0.2em;
+                font-weight: 500;
+            }
+            .scroll-cue svg {
+                width: 1rem;
+                height: 1rem;
+            }
+
+            /* ============================================================
+       USP BAR
+    ============================================================ */
+            .usp-section {
+                background: var(--cream-dark);
+                padding: 4rem 0;
+            }
+            @media (min-width: 1024px) {
+                .usp-section {
+                    padding: 5rem 0;
+                }
+            }
+            .usp-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            @media (min-width: 640px) {
+                .usp-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+            @media (min-width: 1024px) {
+                .usp-grid {
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 2rem;
+                }
+            }
+            .usp-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .usp-icon {
+                width: 4rem;
+                height: 4rem;
+                border-radius: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 1.25rem;
+                background: rgba(212, 136, 61, 0.12);
+                transition: background 0.2s;
+            }
+            .usp-item:hover .usp-icon {
+                background: rgba(138, 176, 122, 0.15);
+            }
+            .usp-icon svg {
+                width: 2rem;
+                height: 2rem;
+                color: var(--primary);
+            }
+            .usp-item h3 {
+                font-family: var(--font-serif);
+                font-size: 1.25rem;
+                color: var(--bark);
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+            }
+            .usp-item p {
+                font-size: 0.875rem;
+                line-height: 1.6;
+                color: var(--bark-light);
+            }
+
+            /* ============================================================
+       STORY
+    ============================================================ */
+            .story-section {
+                background: var(--cream);
+                padding: 5rem 0;
+            }
+            @media (min-width: 1024px) {
+                .story-section {
+                    padding: 7rem 0;
+                }
+            }
+            .story-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                align-items: center;
+            }
+            @media (min-width: 1024px) {
+                .story-grid {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 5rem;
+                }
+            }
+
+            .story-visual {
+                position: relative;
+                order: 2;
+            }
+            @media (min-width: 1024px) {
+                .story-visual {
+                    order: 1;
+                }
+            }
+
+            .story-quote-card {
+                border-radius: 1.5rem;
+                overflow: hidden;
+                box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+                aspect-ratio: 4/3;
+                background: linear-gradient(
+                    135deg,
+                    var(--bark),
+                    var(--primary)
+                );
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 2.5rem;
+                text-align: center;
+                position: relative;
+            }
+            .story-quote-card svg {
+                width: 3rem;
+                height: 3rem;
+                margin-bottom: 1rem;
+                opacity: 0.4;
+                color: var(--cream);
+            }
+            .story-quote-card blockquote {
+                font-family: var(--font-serif);
+                color: var(--cream);
+                font-size: 1.25rem;
+                font-style: italic;
+                line-height: 1.6;
+            }
+            @media (min-width: 1024px) {
+                .story-quote-card blockquote {
+                    font-size: 1.5rem;
+                }
+            }
+            .story-divider {
+                margin: 1.5rem auto 0;
+                width: 3rem;
+                height: 4px;
+                border-radius: 9999px;
+                background: var(--gold);
+                opacity: 0.6;
+            }
+            .story-author {
+                margin-top: 1rem;
+                color: var(--cream);
+                font-size: 0.875rem;
+                font-weight: 600;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+            }
+
+            .story-badge {
+                margin-top: 1rem;
+                background: var(--cream);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                border-radius: 1rem;
+                padding: 1rem 1.25rem;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                border: 1px solid var(--cream-dark);
+            }
+            @media (min-width: 1024px) {
+                .story-badge {
+                    position: absolute;
+                    bottom: -1.5rem;
+                    left: -1rem;
+                    margin-top: 0;
+                }
+            }
+            .story-badge-icon {
+                width: 2.5rem;
+                height: 2.5rem;
+                background: var(--primary);
+                border-radius: 0.75rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+            .story-badge-icon svg {
+                width: 1.25rem;
+                height: 1.25rem;
+                color: var(--cream);
+            }
+            .story-badge-title {
+                font-family: var(--font-serif);
+                font-weight: 700;
+                color: var(--bark);
+                font-size: 0.875rem;
+            }
+            .story-badge-sub {
+                font-size: 0.75rem;
+                color: rgba(44, 44, 44, 0.6);
+            }
+
+            .story-text {
+                order: 1;
+            }
+            @media (min-width: 1024px) {
+                .story-text {
+                    order: 2;
+                }
+            }
+            .story-text p {
+                color: rgba(44, 44, 44, 0.8);
+                line-height: 1.75;
+                margin-bottom: 1rem;
+            }
+            .story-text p.bold {
+                font-weight: 500;
+                color: var(--bark);
+            }
+            .story-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+                margin-top: 2rem;
+            }
+            .story-tag {
+                background: rgba(212, 136, 61, 0.1);
+                color: var(--primary);
+                font-size: 0.75rem;
+                font-weight: 600;
+                padding: 0.375rem 0.75rem;
+                border-radius: 9999px;
+            }
+
+            /* ============================================================
+       PRODUCTS
+    ============================================================ */
+            .products-section {
+                background: var(--cream-dark);
+                padding: 5rem 0;
+            }
+            @media (min-width: 1024px) {
+                .products-section {
+                    padding: 7rem 0;
+                }
+            }
+            .products-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            @media (min-width: 768px) {
+                .products-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            .product-card {
+                background: var(--cream);
+                border-radius: 1.5rem;
+                overflow: hidden;
+                border: 1px solid var(--cream-dark);
+                display: flex;
+                flex-direction: column;
+                transition:
+                    box-shadow 0.3s,
+                    transform 0.3s;
+            }
+            .product-card:hover {
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+                transform: translateY(-4px);
+            }
+            .product-img {
+                position: relative;
+                height: 13rem;
+                overflow: hidden;
+            }
+            .product-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s;
+            }
+            .product-card:hover .product-img img {
+                transform: scale(1.05);
+            }
+
+            .product-badge {
+                position: absolute;
+                top: 0.75rem;
+                left: 0.75rem;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.375rem;
+                padding: 0.25rem 0.75rem;
+                border-radius: 9999px;
+                font-size: 0.75rem;
+                font-weight: 600;
+            }
+            .product-badge svg {
+                width: 0.875rem;
+                height: 0.875rem;
+            }
+            .badge-0 {
+                background: rgba(212, 136, 61, 0.95);
+                color: var(--cream);
+            }
+            .badge-1 {
+                background: rgba(138, 176, 122, 0.95);
+                color: var(--bark);
+            }
+            .badge-2 {
+                background: rgba(44, 44, 44, 0.95);
+                color: var(--cream);
+            }
+
+            .product-body {
+                padding: 1.75rem;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+            }
+            .product-body h3 {
+                font-family: var(--font-serif);
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: var(--bark);
+                margin-bottom: 0.75rem;
+            }
+            .product-body p {
+                font-size: 0.875rem;
+                line-height: 1.6;
+                color: rgba(44, 44, 44, 0.7);
+                flex: 1;
+            }
+
+            .product-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin-top: 1.25rem;
+            }
+            .product-tag {
+                font-size: 0.75rem;
+                font-weight: 500;
+                padding: 0.25rem 0.75rem;
+                border-radius: 9999px;
+            }
+            .ptag-0 {
+                background: rgba(212, 136, 61, 0.1);
+                color: var(--primary);
+            }
+            .ptag-1 {
+                background: rgba(138, 176, 122, 0.15);
+                color: var(--gold-dark);
+            }
+            .ptag-2 {
+                background: rgba(44, 44, 44, 0.1);
+                color: var(--bark);
+            }
+
+            .product-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.375rem;
+                margin-top: 1.5rem;
+                font-size: 0.875rem;
+                font-weight: 600;
+            }
+            .product-link svg {
+                width: 1rem;
+                height: 1rem;
+                transition: transform 0.2s;
+            }
+            .product-card:hover .product-link svg {
+                transform: translateX(4px);
+            }
+            .plink-0 {
+                color: var(--primary);
+            }
+            .plink-0:hover {
+                color: var(--primary-dark);
+            }
+            .plink-1 {
+                color: var(--gold-dark);
+            }
+            .plink-1:hover {
+                color: var(--gold);
+            }
+            .plink-2 {
+                color: var(--bark-light);
+            }
+            .plink-2:hover {
+                color: var(--bark);
+            }
+
+            /* ============================================================
+       WHERE TO FIND
+    ============================================================ */
+            .where-section {
+                background: var(--cream);
+                padding: 5rem 0;
+            }
+            @media (min-width: 1024px) {
+                .where-section {
+                    padding: 7rem 0;
+                }
+            }
+            .where-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            @media (min-width: 1024px) {
+                .where-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            .where-card {
+                background: var(--cream-dark);
+                border-radius: 1.5rem;
+                padding: 2rem;
+            }
+            .where-card-dark {
+                background: var(--primary-dark);
+                color: var(--cream);
+            }
+
+            .where-icon {
+                width: 3rem;
+                height: 3rem;
+                border-radius: 0.75rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 1.25rem;
+            }
+            .where-icon svg {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+            .wi-light {
+                background: rgba(138, 176, 122, 0.2);
+            }
+            .wi-light svg {
+                color: var(--cream);
+            }
+            .wi-orange {
+                background: rgba(212, 136, 61, 0.15);
+            }
+            .wi-orange svg {
+                color: var(--primary);
+            }
+            .wi-green {
+                background: rgba(138, 176, 122, 0.15);
+            }
+            .wi-green svg {
+                color: var(--gold-dark);
+            }
+
+            .where-card h3 {
+                font-family: var(--font-serif);
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+            }
+            .where-card-dark h3 {
+                color: var(--cream);
+            }
+            .where-card-light h3 {
+                color: var(--bark);
+            }
+            .where-card p {
+                font-size: 0.875rem;
+                line-height: 1.6;
+                margin-bottom: 1.25rem;
+            }
+            .where-order-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.4rem;
+                margin-top: 1.25rem;
+                padding: 0.6rem 1.25rem;
+                border-radius: 2rem;
+                font-size: 0.875rem;
+                font-weight: 600;
+                text-decoration: none;
+                transition:
+                    opacity 0.2s,
+                    transform 0.15s;
+            }
+            .where-order-btn:hover {
+                opacity: 0.85;
+                transform: translateY(-1px);
+            }
+            .where-order-btn-light {
+                background: var(--cream);
+                color: var(--primary-dark);
+            }
+            .where-order-btn-dark {
+                background: var(--primary);
+                color: #fff;
+            }
+            .market-order-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.3rem;
+                padding: 0.25rem 0.75rem;
+                border-radius: 1rem;
+                font-size: 0.75rem;
+                font-weight: 600;
+                text-decoration: none;
+                background: var(--primary);
+                color: #fff;
+                transition: opacity 0.2s;
+                white-space: nowrap;
+            }
+            .market-order-btn:hover {
+                opacity: 0.8;
+            }
+            .where-card-dark p {
+                color: rgba(250, 246, 238, 0.7);
+            }
+            .where-card-light p {
+                color: rgba(44, 44, 44, 0.6);
+            }
+
+            .addr-row {
+                display: flex;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+            .addr-row svg {
+                width: 1rem;
+                height: 1rem;
+                flex-shrink: 0;
+                margin-top: 2px;
+                color: var(--cream);
+            }
+            .addr-main {
+                font-weight: 500;
+            }
+            .addr-sub {
+                font-size: 0.875rem;
+                color: rgba(250, 246, 238, 0.65);
+            }
+
+            .hours-list {
+                margin-top: 1.5rem;
+            }
+            .hours-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem 0;
+                border-bottom: 1px solid rgba(250, 246, 238, 0.12);
+                font-size: 0.875rem;
+            }
+            .hours-row:last-child {
+                border-bottom: 0;
+            }
+            .hours-day {
+                font-weight: 500;
+            }
+            .hours-time {
+                font-family: monospace;
+            }
+
+            .market-list {
+                list-style: none;
+            }
+            .market-item {
+                display: grid;
+                grid-template-columns: 0.5rem auto 1fr auto;
+                align-items: center;
+                column-gap: 0.5rem;
+                padding: 0.625rem 0;
+                border-bottom: 1px solid rgba(44, 44, 44, 0.07);
+            }
+            .market-item:last-child {
+                border-bottom: 0;
+            }
+            .mdot {
+                width: 0.5rem;
+                height: 0.5rem;
+                border-radius: 50%;
+            }
+            .mdot-primary {
+                background: var(--primary);
+            }
+            .mdot-gold {
+                background: var(--gold);
+            }
+            .mday {
+                font-weight: 600;
+                color: var(--bark);
+                white-space: nowrap;
+            }
+            .mloc {
+                color: rgba(44, 44, 44, 0.55);
+            }
+
+            .bb-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.25rem;
+                color: var(--primary);
+                font-size: 0.875rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+            .bb-link:hover {
+                text-decoration: underline;
+            }
+            .bb-link svg {
+                width: 0.75rem;
+                height: 0.75rem;
+            }
+
+            /* ============================================================
+       PARTNERS
+    ============================================================ */
+            .partners-section {
+                background: var(--cream);
+                padding: 4rem 0;
+            }
+            @media (min-width: 1024px) {
+                .partners-section {
+                    padding: 5rem 0;
+                }
+            }
+            .partners-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
+            }
+            @media (min-width: 1024px) {
+                .partners-grid {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+            }
+
+            .partner-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 1.5rem;
+                border-radius: 1rem;
+                background: var(--cream-dark);
+                border: 1px solid var(--cream-dark);
+                transition:
+                    background 0.3s,
+                    border-color 0.3s,
+                    box-shadow 0.3s,
+                    transform 0.3s;
+            }
+            .partner-card:hover {
+                background: rgba(212, 136, 61, 0.08);
+                border-color: rgba(212, 136, 61, 0.2);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+                transform: translateY(-2px);
+            }
+            .partner-icon {
+                font-size: 2.5rem;
+                margin-bottom: 0.75rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 3rem;
+            }
+            .partner-name {
+                font-weight: 600;
+                color: var(--bark);
+                font-size: 0.875rem;
+                line-height: 1.3;
+                margin-bottom: 0.25rem;
+                transition: color 0.2s;
+            }
+            .partner-card:hover .partner-name {
+                color: var(--primary);
+            }
+            .partner-desc {
+                color: rgba(44, 44, 44, 0.5);
+                font-size: 0.75rem;
+                line-height: 1.4;
+                margin-bottom: 0.75rem;
+                flex: 1;
+            }
+            .partner-arrow svg {
+                width: 0.875rem;
+                height: 0.875rem;
+                color: rgba(44, 44, 44, 0.3);
+                transition: color 0.2s;
+            }
+            .partner-card:hover .partner-arrow svg {
+                color: var(--primary);
+            }
+            .belgian-flag {
+                width: 2.5rem;
+                height: auto;
+                border-radius: 0.125rem;
+            }
+
+            /* ============================================================
+       CONTACT
+    ============================================================ */
+            .contact-section {
+                background: var(--cream-dark);
+                padding: 5rem 0;
+            }
+            @media (min-width: 1024px) {
+                .contact-section {
+                    padding: 7rem 0;
+                }
+            }
+            .contact-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                align-items: start;
+            }
+            @media (min-width: 768px) {
+                .contact-grid {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 2rem;
+                }
+            }
+
+            .cd-card {
+                background: var(--cream);
+                border-radius: 1.5rem;
+                padding: 2rem;
+                border: 1px solid rgba(44, 44, 44, 0.08);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+                height: 100%;
+            }
+            .cd-card h3 {
+                font-family: var(--font-serif);
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: var(--bark);
+                margin-bottom: 1.5rem;
+            }
+            .cd-list {
+                display: flex;
+                flex-direction: column;
+                gap: 1.25rem;
+            }
+            .cd-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 1rem;
+                text-decoration: none;
+                transition: opacity 0.2s;
+            }
+            .cd-item:hover {
+                opacity: 0.75;
+            }
+            .cd-icon {
+                width: 2.5rem;
+                height: 2.5rem;
+                background: rgba(212, 136, 61, 0.1);
+                border-radius: 0.75rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+            .cd-icon svg {
+                width: 1.25rem;
+                height: 1.25rem;
+                color: var(--primary);
+            }
+            .cd-label {
+                font-size: 0.75rem;
+                font-weight: 600;
+                color: var(--primary);
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                margin-bottom: 0.2rem;
+            }
+            .cd-value {
+                font-size: 0.875rem;
+                font-weight: 500;
+                color: var(--bark);
+                white-space: pre-line;
+            }
+
+            .cd-hours-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 1.25rem;
+            }
+            .cd-hours-table tr {
+                border-bottom: 1px solid rgba(44, 44, 44, 0.07);
+            }
+            .cd-hours-table tr:last-child {
+                border-bottom: 0;
+            }
+            .cd-hours-table td {
+                padding: 0.6rem 0;
+                font-size: 0.875rem;
+                color: var(--bark);
+            }
+            .cd-hours-table td:first-child {
+                font-weight: 600;
+                padding-right: 1.5rem;
+            }
+            .cd-hours-table td:last-child {
+                color: rgba(44, 44, 44, 0.65);
+                font-family: monospace;
+            }
+            .cd-hours-note {
+                font-size: 0.8rem;
+                color: rgba(44, 44, 44, 0.55);
+                line-height: 1.55;
+                border-top: 1px solid rgba(44, 44, 44, 0.07);
+                padding-top: 1rem;
+            }
+
+            /* ============================================================
+       FOOTER
+    ============================================================ */
+            footer {
+                background: var(--bark);
+                color: var(--cream);
+            }
+            .footer-main {
+                padding-top: 3.5rem;
+                padding-bottom: 4rem;
+            }
+            @media (min-width: 1024px) {
+                .footer-main {
+                    padding-top: 4rem;
+                    padding-bottom: 4rem;
+                }
+            }
+            .footer-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            @media (min-width: 640px) {
+                .footer-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+            @media (min-width: 1024px) {
+                .footer-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 3rem;
+                }
+            }
+
+            .footer-logo-row {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                margin-bottom: 1rem;
+            }
+            .footer-logo-icon {
+                width: 2.5rem;
+                height: 2.5rem;
+                background: var(--primary);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                flex-shrink: 0;
+            }
+            .footer-logo-icon svg {
+                width: 1.25rem;
+                height: 1.25rem;
+                color: var(--cream);
+            }
+            .footer-logo-name {
+                font-family: var(--font-serif);
+                font-weight: 700;
+                font-size: 1.125rem;
+                line-height: 1;
+            }
+            .footer-logo-founder {
+                color: var(--gold);
+                font-size: 0.75rem;
+                letter-spacing: 0.05em;
+            }
+            .footer-tagline {
+                font-size: 0.875rem;
+                line-height: 1.6;
+                margin-bottom: 1.25rem;
+                color: rgba(245, 240, 232, 0.6);
+            }
+
+            .footer-social a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 2.25rem;
+                height: 2.25rem;
+                border-radius: 50%;
+                background: rgba(245, 240, 232, 0.1);
+                transition: background 0.2s;
+            }
+            .footer-social a:hover {
+                background: var(--primary);
+            }
+            .footer-social svg {
+                width: 1rem;
+                height: 1rem;
+                color: var(--cream);
+            }
+
+            .footer-contact h3,
+            .footer-nav-col h3 {
+                font-family: var(--font-serif);
+                font-weight: 600;
+                font-size: 1.125rem;
+                margin-bottom: 1rem;
+                color: var(--gold);
+            }
+            .fc-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 0.75rem;
+                margin-bottom: 0.75rem;
+                font-size: 0.875rem;
+                color: rgba(245, 240, 232, 0.7);
+                transition: color 0.2s;
+            }
+            .fc-item:hover {
+                color: var(--cream);
+            }
+            .fc-item svg {
+                width: 1rem;
+                height: 1rem;
+                color: var(--gold);
+                flex-shrink: 0;
+                margin-top: 2px;
+            }
+
+            .footer-hours-div {
+                margin-top: 1.25rem;
+                padding-top: 1rem;
+                border-top: 1px solid rgba(245, 240, 232, 0.1);
+            }
+            .footer-hours-lbl {
+                font-size: 0.75rem;
+                margin-bottom: 0.375rem;
+                color: rgba(245, 240, 232, 0.45);
+            }
+            .footer-hours p {
+                font-size: 0.875rem;
+                color: rgba(245, 240, 232, 0.7);
+            }
+
+            .footer-nav-list {
+                list-style: none;
+            }
+            .footer-nav-list li {
+                margin-bottom: 0.5rem;
+            }
+            .footer-nav-list a {
+                font-size: 0.875rem;
+                color: rgba(245, 240, 232, 0.65);
+                transition: color 0.2s;
+            }
+            .footer-nav-list a:hover {
+                color: var(--gold);
+            }
+
+            .footer-bottom {
+                border-top: 1px solid rgba(245, 240, 232, 0.08);
+            }
+            .footer-bottom-inner {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.75rem;
+                color: rgba(245, 240, 232, 0.35);
+            }
+            @media (min-width: 640px) {
+                .footer-bottom-inner {
+                    flex-direction: row;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+        <header class="navbar" id="navbar">
+            <nav class="nav-inner" aria-label="Hoofdnavigatie">
+                <div class="nav-row">
+                    <a
+                        href="#home"
+                        class="nav-logo"
+                        aria-label="Bakkerij Hans — terug naar boven"
+                    >
+                        <div class="nav-logo-icon">
+                            <i data-lucide="wheat"></i>
+                        </div>
+                        <div class="nav-logo-text">
+                            <span class="nav-logo-name">Bakkerij Hans</span>
+                            <span class="nav-logo-tagline"
+                                >Lactosevrij · Plantaardig</span
+                            >
+                        </div>
+                    </a>
+
+                    <div class="nav-links">
+                        <a href="#home">Home</a>
+                        <a href="#verhaal">Ons Verhaal</a>
+                        <a href="#producten">Producten</a>
+                        <a href="#markten">Vind ons</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#markten" class="nav-bestel-btn"
+                            ><i data-lucide="shopping-bag"></i> Bestel nu</a
+                        >
+                    </div>
+
+                    <button
+                        class="nav-burger"
+                        id="hamburger"
+                        aria-label="Menu openen"
+                        aria-expanded="false"
+                    >
+                        <i data-lucide="menu" id="burger-icon"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <div
+                class="mobile-menu"
+                id="mobile-menu"
+                role="dialog"
+                aria-label="Mobiel menu"
+            >
+                <div class="mobile-menu-inner">
+                    <a href="#home" class="m-link">Home</a>
+                    <a href="#verhaal" class="m-link">Ons Verhaal</a>
+                    <a href="#producten" class="m-link">Producten</a>
+                    <a href="#markten" class="m-link">Vind ons</a>
+                    <a href="#contact" class="m-link">Contact</a>
+                    <a href="#markten" class="m-link m-bestel-btn"
+                        ><i data-lucide="shopping-bag"></i> Bestel nu</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <!-- ============================================================
+       HERO
+  ============================================================ -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <span class="hero-badge"
+                    >Lactosevrij · Plantaardig · Ambachtelijk</span
+                >
+                <h1>
+                    Ambachtelijk bakken<br />
+                    <span class="accent">zonder melk</span>,<br />
+                    vol van smaak.
+                </h1>
+                <p class="hero-sub">
+                    Brood, patisserie en feestgebak, bijna 100% op plantaardige
+                    basis (alle allergenen zijn duidelijk aangegeven).<br />
+                    Geen lactose, geen melkeiwit. Gemaakt met vakmanschap in
+                    Tielt-Winge.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#verhaal" class="btn-outline">
+                        <i data-lucide="book-open"></i>
+                        Ons Verhaal
+                    </a>
+                    <a href="#contact" class="btn-primary">
+                        <i data-lucide="mail"></i>
+                        Neem Contact Op
+                    </a>
+                </div>
+                <div class="hero-trust">
+                    <span
+                        ><span class="trust-dot"></span>Erkende Streekproducten
+                        uit Vlaams-Brabant in assortiment</span
+                    >
+                    <span
+                        ><span class="trust-dot"></span>Bio-sojadrank &amp;
+                        glutenvrije bio haverdrank van LIMA</span
+                    >
+                    <span
+                        ><span class="trust-dot"></span>Wekelijkse markten</span
+                    >
+                </div>
+            </div>
+            <div class="scroll-cue" aria-hidden="true">
+                <span>Ontdek meer</span>
+                <i data-lucide="chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       USP BAR
+  ============================================================ -->
+        <section
+            id="voordelen"
+            class="usp-section"
+            aria-labelledby="usp-heading"
+        >
+            <div class="container">
+                <h2 id="usp-heading" class="sr-only">Onze kernwaarden</h2>
+                <div class="usp-grid">
+                    <div class="usp-item">
+                        <div class="usp-icon">
+                            <i data-lucide="hand-heart"></i>
+                        </div>
+                        <h3>Ambachtelijk</h3>
+                        <p>
+                            Elk product wordt met de hand gemaakt door onze
+                            bakker. Met zorg, van begin tot einde.
+                        </p>
+                    </div>
+                    <div class="usp-item">
+                        <div class="usp-icon"><i data-lucide="wheat"></i></div>
+                        <h3>Spelt-producten</h3>
+                        <p>
+                            Veel producten zijn gemaakt met speltmeel. Spelt is
+                            van nature minder zwaar op de maag dan tarwe.
+                        </p>
+                    </div>
+                    <div class="usp-item">
+                        <div class="usp-icon">
+                            <i data-lucide="milk-off"></i>
+                        </div>
+                        <h3>Lactose &amp; Melkvrij</h3>
+                        <p>
+                            Al onze producten zijn zonder melk en zonder
+                            lactose. Veilig voor mensen met een allergie.
+                        </p>
+                    </div>
+                    <div class="usp-item">
+                        <div class="usp-icon"><i data-lucide="leaf"></i></div>
+                        <h3>Plantaardig</h3>
+                        <p>
+                            We gebruiken bio-sojadrank en glutenvrije bio
+                            haverdrank van LIMA in plaats van gewone melk. Goed
+                            voor iedereen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       STORY
+  ============================================================ -->
+        <section
+            id="verhaal"
+            class="story-section"
+            aria-labelledby="story-heading"
+        >
+            <div class="container">
+                <div class="story-grid">
+                    <!-- Visual -->
+                    <div class="story-visual">
+                        <div class="story-quote-card">
+                            <i data-lucide="quote"></i>
+                            <blockquote>
+                                &ldquo;(H)eerlijke ambachtelijke
+                                bakkerijproducten die lactosevrij en
+                                melkeiwitvrij zijn.&rdquo;
+                            </blockquote>
+                            <div class="story-divider"></div>
+                            <p class="story-author">Hans Van Bedts</p>
+                        </div>
+                        <div class="story-badge">
+                            <div class="story-badge-icon">
+                                <i data-lucide="award"></i>
+                            </div>
+                            <div>
+                                <div class="story-badge-title">
+                                    Erkende Streekproducten uit
+                                </div>
+                                <div class="story-badge-sub">
+                                    Vlaams-Brabant in assortiment
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text -->
+                    <div class="story-text">
+                        <span class="section-label">Ons Verhaal</span>
+                        <h2 id="story-heading" class="section-heading">
+                            Bakken vanuit<br />
+                            <span class="accent">passie &amp; nood</span>
+                        </h2>
+                        <p>
+                            Hans is allergisch voor melk. Hij merkte dat echte
+                            lactosevrije bakkerijproducten bijna niet te vinden
+                            zijn, want zelfs gewoon brood bevat vaak
+                            melkbestanddelen.
+                        </p>
+                        <p>
+                            Daarom begon hij zelf te bakken, eerst voor
+                            zichzelf, al snel ook voor anderen. Hij gebruikt
+                            <strong
+                                >bio-sojadrank en glutenvrije bio haverdrank van
+                                LIMA</strong
+                            >
+                            in plaats van gewone melk.
+                        </p>
+                        <p>
+                            Proef van heerlijke slagroomtaarten zonder lactose.
+                            Met plantaardige slagroom, vol van smaak, maar met
+                            minder vet en cholesterol.
+                        </p>
+                        <p class="bold">
+                            Dat is lekker en gezond, voor iedereen.
+                        </p>
+                        <div class="story-tags">
+                            <span class="story-tag">Geen melk</span>
+                            <span class="story-tag">Geen lactose</span>
+                            <span class="story-tag"
+                                >Bio-sojadrank & glutenvrije bio haverdrank van
+                                LIMA</span
+                            >
+                            <span class="story-tag">Minder cholesterol</span>
+                            <span class="story-tag">Vol smaak</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       PRODUCTS
+  ============================================================ -->
+        <section
+            id="producten"
+            class="products-section"
+            aria-labelledby="products-heading"
+        >
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Assortiment</span>
+                    <h2 id="products-heading" class="section-heading">
+                        Onze Producten
+                    </h2>
+                    <p class="section-sub">
+                        Alles 100% plantaardig en lactosevrij, van dagelijks
+                        brood tot feestelijk gebak.
+                    </p>
+                </div>
+                <div class="products-grid">
+                    <article class="product-card">
+                        <div class="product-img">
+                            <img
+                                src="assets/img/20180210_150533.jpg"
+                                alt="Vers ambachtelijk speltbrood van Bakkerij Hans"
+                                loading="lazy"
+                            />
+                            <span class="product-badge badge-0"
+                                ><i data-lucide="croissant"></i> Brood</span
+                            >
+                        </div>
+                        <div class="product-body">
+                            <h3>Brood</h3>
+                            <p>
+                                Wij bakken verschillende soorten brood, altijd
+                                zonder melk of lactose. In ons assortiment ook
+                                broden met spelt, van nature glutenarm (niet
+                                glutenvrij).
+                            </p>
+                            <div class="product-tags">
+                                <span class="product-tag ptag-0">Spelt</span>
+                                <span class="product-tag ptag-0"
+                                    >Lactosevrij</span
+                                >
+                                <span class="product-tag ptag-0"
+                                    >Plantaardig</span
+                                >
+                            </div>
+                            <a href="#markten" class="product-link plink-0"
+                                >Waar te vinden <i data-lucide="arrow-right"></i
+                            ></a>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-img">
+                            <img
+                                src="assets/img/20180210_150619.jpg"
+                                alt="Lactosevrije patisserie en taarten van Bakkerij Hans"
+                                loading="lazy"
+                            />
+                            <span class="product-badge badge-1"
+                                ><i data-lucide="cake-slice"></i>
+                                Patisserie</span
+                            >
+                        </div>
+                        <div class="product-body">
+                            <h3>Taarten &amp; Gebak</h3>
+                            <p>
+                                Van slagroomtaarten tot fijn gebak, volledig
+                                lactosevrij. Wij gebruiken allergeenvrije
+                                slagroom. Lekker én lichter.
+                            </p>
+                            <div class="product-tags">
+                                <span class="product-tag ptag-1"
+                                    >Feestgebak</span
+                                >
+                                <span class="product-tag ptag-1"
+                                    >Slagroomtaart</span
+                                >
+                                <span class="product-tag ptag-1"
+                                    >Lactosevrij</span
+                                >
+                            </div>
+                            <a href="#markten" class="product-link plink-1"
+                                >Waar te vinden <i data-lucide="arrow-right"></i
+                            ></a>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-img">
+                            <img
+                                src="assets/img/20180210_150449.jpg"
+                                alt="Feestdagenassortiment van Bakkerij Hans, lactosevrij gebak"
+                                loading="lazy"
+                            />
+                            <span class="product-badge badge-2"
+                                ><i data-lucide="star"></i> Feestdagen</span
+                            >
+                        </div>
+                        <div class="product-body">
+                            <h3>Feestdagenassortiment</h3>
+                            <p>
+                                Speciaal aanbod voor de feestdagen: Pasen,
+                                Kerst, Nieuwjaar en meer. Vraag op tijd of uw
+                                keuze beschikbaar is en neem contact op per
+                                e-mail.
+                            </p>
+                            <div class="product-tags">
+                                <span class="product-tag ptag-2"
+                                    >Seizoensgebonden</span
+                                >
+                                <span class="product-tag ptag-2"
+                                    >Op bestelling</span
+                                >
+                            </div>
+                            <a href="#markten" class="product-link plink-2"
+                                >Waar te vinden <i data-lucide="arrow-right"></i
+                            ></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       WHERE TO FIND
+  ============================================================ -->
+        <section
+            id="markten"
+            class="where-section"
+            aria-labelledby="where-heading"
+        >
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Waar te vinden</span>
+                    <h2 id="where-heading" class="section-heading">Vind ons</h2>
+                    <p class="section-sub">
+                        Bezoek ons in de bakkerij of vind ons op een van de
+                        wekelijkse markten in uw buurt.
+                    </p>
+                </div>
+                <div class="where-grid">
+                    <!-- Bakery -->
+                    <div class="where-card where-card-dark">
+                        <div class="where-icon wi-light">
+                            <i data-lucide="home"></i>
+                        </div>
+                        <h3>In de Bakkerij</h3>
+                        <p>
+                            Op deze dagen kunt u de meeste producten gewoon
+                            kopen. Wilt u zeker zijn dat uw keuze er is? Bestel
+                            dan hieronder of via e-mail.
+                        </p>
+                        <address>
+                            <div class="addr-row">
+                                <i data-lucide="map-pin"></i>
+                                <div>
+                                    <div class="addr-main">
+                                        Haksbergstraat 43
+                                    </div>
+                                    <div class="addr-sub">3390 Tielt-Winge</div>
+                                </div>
+                            </div>
+                        </address>
+                        <div class="hours-list">
+                            <div class="hours-row">
+                                <span class="hours-day">Woensdag</span>
+                                <span class="hours-time">16:00 – 20:00</span>
+                            </div>
+                            <div class="hours-row">
+                                <span class="hours-day">Zaterdag</span>
+                                <span class="hours-time">15:30 – 19:00</span>
+                            </div>
+                        </div>
+                        <div
+                            style="
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                flex-wrap: wrap;
+                                gap: 0.5rem;
+                                margin-top: 1.25rem;
+                            "
+                        >
+                            <a
+                                href="https://bakkersonline.be/bakkerijhans"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="where-order-btn where-order-btn-light"
+                                style="margin-top: 0"
+                            >
+                                <i data-lucide="shopping-bag"></i> Bestel online
+                            </a>
+                            <a
+                                href="mailto:hans@bakkerijhans.be"
+                                class="where-order-btn where-order-btn-light"
+                                style="margin-top: 0"
+                            >
+                                <i data-lucide="mail"></i> Mail ons
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Markets -->
+                    <div class="where-card where-card-light">
+                        <div class="where-icon wi-orange">
+                            <i data-lucide="map-pin"></i>
+                        </div>
+                        <h3>Wekelijkse Markten</h3>
+                        <p>
+                            Kom ons vinden op de wekelijkse markten in de regio
+                            Vlaams-Brabant.
+                        </p>
+                        <ul class="market-list" aria-label="Marktschema">
+                            <li class="market-item">
+                                <span class="mdot mdot-primary"></span>
+                                <span class="mday">Zondag</span>
+                                <span class="mloc">Heverlee</span>
+                                <a
+                                    href="https://bakkersonline.be/be-nl/bakkerijhansmarktheverlee"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="market-order-btn"
+                                    ><i data-lucide="shopping-bag"></i>
+                                    Bestel</a
+                                >
+                            </li>
+                            <li class="market-item">
+                                <span class="mdot mdot-primary"></span>
+                                <span class="mday">Dinsdag</span>
+                                <span class="mloc">Averbode</span>
+                                <a
+                                    href="mailto:hans@bakkerijhans.be"
+                                    class="market-order-btn"
+                                    ><i data-lucide="mail"></i> Mail ons</a
+                                >
+                            </li>
+                            <li class="market-item">
+                                <span class="mdot mdot-primary"></span>
+                                <span class="mday">Donderdag</span>
+                                <span class="mloc">Begijnendijk</span>
+                                <a
+                                    href="mailto:hans@bakkerijhans.be"
+                                    class="market-order-btn"
+                                    ><i data-lucide="mail"></i> Mail ons</a
+                                >
+                            </li>
+                            <li class="market-item">
+                                <span class="mdot mdot-primary"></span>
+                                <span class="mday">Donderdag</span>
+                                <span class="mloc">St. Jozef Olen</span>
+                                <a
+                                    href="mailto:hans@bakkerijhans.be"
+                                    class="market-order-btn"
+                                    ><i data-lucide="mail"></i> Mail ons</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Boeren en Buren -->
+                    <div class="where-card where-card-light">
+                        <div class="where-icon wi-green">
+                            <i data-lucide="tractor"></i>
+                        </div>
+                        <h3>Boeren en Buren</h3>
+                        <a
+                            href="https://www.crowdfarming.com/nl/buurtmarkt"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="bb-link"
+                        >
+                            crowdfarming.com <i data-lucide="external-link"></i>
+                        </a>
+                        <p>
+                            Bestel via Boeren en Buren. U haalt uw bestelling af
+                            bij een afhaalpunt in uw buurt.
+                        </p>
+                        <ul
+                            class="market-list"
+                            aria-label="Boeren en Buren locaties"
+                        >
+                            <li class="market-item">
+                                <span class="mdot mdot-gold"></span>
+                                <span class="mday">Dinsdag</span>
+                                <span class="mloc">Hasselt</span>
+                            </li>
+                            <li class="market-item">
+                                <span class="mdot mdot-gold"></span>
+                                <span class="mday">Woensdag</span>
+                                <span class="mloc">Aarschot</span>
+                            </li>
+                            <li class="market-item">
+                                <span class="mdot mdot-gold"></span>
+                                <span class="mday">Donderdag</span>
+                                <span class="mloc">Diest</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       PARTNERS
+  ============================================================ -->
+        <section class="partners-section" aria-labelledby="partners-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2
+                        id="partners-heading"
+                        class="section-heading"
+                        style="font-size: 1.875rem"
+                    >
+                        Erkend &amp; Verbonden
+                    </h2>
+                    <p class="section-sub" style="font-size: 0.875rem">
+                        Trots lid van en vermeld door
+                    </p>
+                </div>
+                <div class="partners-grid">
+                    <a
+                        href="https://www.facebook.com/BakkerijHans/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="BakkerijHans op Facebook"
+                        class="partner-card"
+                    >
+                        <span class="partner-icon">📘</span>
+                        <span class="partner-name">Facebook</span>
+                        <span class="partner-desc"
+                            >Volg ons voor nieuws &amp; updates</span
+                        >
+                        <span class="partner-arrow"
+                            ><i data-lucide="arrow-up-right"></i
+                        ></span>
+                    </a>
+                    <a
+                        href="http://www.handmadeinbelgium.com/bakkerijhans/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Bakkerij Hans op Handmade in Belgium"
+                        class="partner-card"
+                    >
+                        <span class="partner-icon">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 3 2"
+                                class="belgian-flag"
+                                aria-hidden="true"
+                            >
+                                <rect
+                                    width="1"
+                                    height="2"
+                                    x="0"
+                                    fill="#000000"
+                                />
+                                <rect
+                                    width="1"
+                                    height="2"
+                                    x="1"
+                                    fill="#FAE042"
+                                />
+                                <rect
+                                    width="1"
+                                    height="2"
+                                    x="2"
+                                    fill="#ED2939"
+                                />
+                            </svg>
+                        </span>
+                        <span class="partner-name">Handmade in Belgium</span>
+                        <span class="partner-desc"
+                            >Erkend Belgisch ambacht</span
+                        >
+                        <span class="partner-arrow"
+                            ><i data-lucide="arrow-up-right"></i
+                        ></span>
+                    </a>
+                    <a
+                        href="https://www.crowdfarming.com/nl/buurtmarkt"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Bakkerij Hans op Boeren en Buren"
+                        class="partner-card"
+                    >
+                        <span class="partner-icon">🌿</span>
+                        <span class="partner-name">Boeren en Buren</span>
+                        <span class="partner-desc"
+                            >Eerlijke lokale voedselketen</span
+                        >
+                        <span class="partner-arrow"
+                            ><i data-lucide="arrow-up-right"></i
+                        ></span>
+                    </a>
+                    <a
+                        href="https://www.straffestreek.be/producent/bakkerij-hans"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Bakkerij Hans"
+                        class="partner-card"
+                    >
+                        <span class="partner-icon">🏅</span>
+                        <span class="partner-name"
+                            >Erkende Streekproducten in assortiment</span
+                        >
+                        <span class="partner-desc"
+                            >Officieel erkend door Straffe Streek</span
+                        >
+                        <span class="partner-arrow"
+                            ><i data-lucide="arrow-up-right"></i
+                        ></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       CONTACT
+  ============================================================ -->
+        <section
+            id="contact"
+            class="contact-section"
+            aria-labelledby="contact-heading"
+        >
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Contact</span>
+                    <h2 id="contact-heading" class="section-heading">
+                        Bereik Ons
+                    </h2>
+                    <p class="section-sub">
+                        Kom langs in de bakkerij, bel ons of stuur een e-mail.
+                    </p>
+                </div>
+                <div class="contact-grid">
+                    <!-- Contactgegevens -->
+                    <div class="cd-card">
+                        <h3>Contactgegevens</h3>
+                        <address class="cd-list">
+                            <a
+                                href="https://maps.app.goo.gl/5T8X6WqwBATiy67s6"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="cd-item"
+                            >
+                                <div class="cd-icon">
+                                    <i data-lucide="map-pin"></i>
+                                </div>
+                                <div>
+                                    <p class="cd-label">Adres</p>
+                                    <p class="cd-value">
+                                        Haksbergstraat 43&#10;3390 Tielt-Winge
+                                    </p>
+                                </div>
+                            </a>
+                            <a href="tel:+3216501153" class="cd-item">
+                                <div class="cd-icon">
+                                    <i data-lucide="phone"></i>
+                                </div>
+                                <div>
+                                    <p class="cd-label">Telefoon</p>
+                                    <p class="cd-value">+32 16 50 11 53</p>
+                                </div>
+                            </a>
+                            <a
+                                href="mailto:hans@bakkerijhans.be"
+                                class="cd-item"
+                            >
+                                <div class="cd-icon">
+                                    <i data-lucide="mail"></i>
+                                </div>
+                                <div>
+                                    <p class="cd-label">E-mail</p>
+                                    <p class="cd-value">hans@bakkerijhans.be</p>
+                                </div>
+                            </a>
+                        </address>
+                    </div>
+
+                    <!-- Openingsuren -->
+                    <div class="cd-card">
+                        <h3>Openingsuren</h3>
+                        <table
+                            class="cd-hours-table"
+                            aria-label="Openingsuren bakkerij"
+                        >
+                            <tbody>
+                                <tr>
+                                    <td>Woensdag</td>
+                                    <td>16:00 – 20:00</td>
+                                </tr>
+                                <tr>
+                                    <td>Zaterdag</td>
+                                    <td>15:30 – 19:00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="cd-hours-note">
+                            Wilt u zeker zijn dat uw gewenste product
+                            beschikbaar is? Neem dan vooraf contact op via
+                            e-mail of telefoon.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+        <footer>
+            <div class="footer-main container">
+                <div class="footer-grid">
+                    <div>
+                        <div class="footer-logo-row">
+                            <div class="footer-logo-icon">
+                                <i data-lucide="wheat"></i>
+                            </div>
+                            <div>
+                                <div class="footer-logo-name">
+                                    Bakkerij Hans
+                                </div>
+                                <div class="footer-logo-founder">
+                                    Hans Van Bedts
+                                </div>
+                            </div>
+                        </div>
+                        <p class="footer-tagline">
+                            Ambachtelijk brood en gebak zonder lactose en melk.
+                            Bijna 100% op plantaardige basis (alle allergenen
+                            zijn duidelijk aangegeven).
+                        </p>
+                        <div class="footer-social">
+                            <a
+                                href="https://www.facebook.com/BakkerijHans/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Bakkerij Hans op Facebook"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                                    />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-contact">
+                        <h3>Contactgegevens</h3>
+                        <address>
+                            <a
+                                href="https://maps.app.goo.gl/5T8X6WqwBATiy67s6"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="fc-item"
+                            >
+                                <i data-lucide="map-pin"></i>
+                                <span
+                                    >Haksbergstraat 43<br />3390
+                                    Tielt-Winge</span
+                                >
+                            </a>
+                            <a href="tel:+3216501153" class="fc-item">
+                                <i data-lucide="phone"></i>
+                                <span>+32 16 50 11 53</span>
+                            </a>
+                            <a
+                                href="mailto:hans@bakkerijhans.be"
+                                class="fc-item"
+                            >
+                                <i data-lucide="mail"></i>
+                                <span>hans@bakkerijhans.be</span>
+                            </a>
+                        </address>
+                        <div class="footer-hours-div">
+                            <p class="footer-hours-lbl">
+                                Openingsuren bakkerij
+                            </p>
+                            <div class="footer-hours">
+                                <p>Woensdag 16:00 tot 20:00</p>
+                                <p>Zaterdag 15:30 tot 19:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-nav-col">
+                        <h3>Navigatie</h3>
+                        <nav aria-label="Footer navigatie">
+                            <ul class="footer-nav-list">
+                                <li><a href="#home">Home</a></li>
+                                <li><a href="#verhaal">Ons Verhaal</a></li>
+                                <li><a href="#producten">Producten</a></li>
+                                <li><a href="#markten">Vind ons</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-inner container">
+                    <p id="copyright">
+                        © 2026 Bakkerij Hans Van Bedts. Alle rechten
+                        voorbehouden.
+                    </p>
+                    <p>Ambachtelijk · Lactosevrij · Plantaardig</p>
+                    <p>
+                        Gebouwd met ❤️ door
+                        <a
+                            href="https://itdepends.be"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style="
+                                color: inherit;
+                                text-decoration: underline;
+                                text-underline-offset: 2px;
+                            "
+                            >IT depends</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Lucide Icons CDN -->
+        <script src="assets/js/lucide.min.js"></script>
+        <script>
+            lucide.createIcons();
+
+            // ── Navbar scroll ──────────────────────────────────────────
+            const navbar = document.getElementById("navbar");
+            window.addEventListener(
+                "scroll",
+                () => {
+                    navbar.classList.toggle("scrolled", window.scrollY > 30);
+                },
+                { passive: true },
+            );
+
+            // ── Mobile menu ────────────────────────────────────────────
+            const hamburger = document.getElementById("hamburger");
+            const mobileMenu = document.getElementById("mobile-menu");
+            let menuOpen = false;
+
+            hamburger.addEventListener("click", () => {
+                menuOpen = !menuOpen;
+                mobileMenu.classList.toggle("open", menuOpen);
+                hamburger.setAttribute("aria-expanded", menuOpen);
+                hamburger.setAttribute(
+                    "aria-label",
+                    menuOpen ? "Menu sluiten" : "Menu openen",
+                );
+            });
+
+            document.querySelectorAll(".m-link").forEach((link) => {
+                link.addEventListener("click", () => {
+                    menuOpen = false;
+                    mobileMenu.classList.remove("open");
+                    hamburger.setAttribute("aria-expanded", "false");
+                    hamburger.setAttribute("aria-label", "Menu openen");
+                });
+            });
+
+            // ── Copyright year ─────────────────────────────────────────
+            document.getElementById("copyright").textContent =
+                `© ${new Date().getFullYear()} Bakkerij Hans Van Bedts. Alle rechten voorbehouden.`;
+        </script>
+    </body>
+</html>
