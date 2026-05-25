@@ -26,7 +26,11 @@
         <meta property="og:site_name" content="Bakkerij Hans" />
         <meta property="og:locale" content="nl_BE" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://bakkerijhans.be/assets/img/20180210_150619.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <link rel="canonical" href="https://bakkerijhans.be" />
+        <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
         <link href="assets/fonts/fonts.css" rel="stylesheet" />
 
         <script type="application/ld+json">
@@ -71,6 +75,22 @@
                 ],
                 "servesCuisine": ["Plantaardig", "Lactosevrij", "Vegan"],
                 "priceRange": "€€"
+            }
+        </script>
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Bakkerij Hans",
+                "url": "https://bakkerijhans.be/",
+                "logo": "https://bakkerijhans.be/assets/img/20180210_150619.jpg",
+                "description": "Ambachtelijke bakkerij in Tielt-Winge met volledig lactosevrij en melkeiwitvrij assortiment: brood, patisserie en feestgebak op bijna 100% plantaardige basis.",
+                "email": "hans@bakkerijhans.be",
+                "telephone": "+3216501153",
+                "sameAs": [
+                    "https://www.facebook.com/BakkerijHans/"
+                ]
             }
         </script>
 
@@ -870,6 +890,110 @@
             }
 
             /* ============================================================
+       PRESS
+    ============================================================ */
+            .press-section {
+                background: var(--bark);
+                padding: 4rem 0;
+            }
+            .press-inner {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2.5rem;
+                text-align: center;
+            }
+            @media (min-width: 1024px) {
+                .press-inner {
+                    flex-direction: row;
+                    text-align: left;
+                    gap: 4rem;
+                }
+            }
+            .press-clipping {
+                flex-shrink: 0;
+                width: 180px;
+                border-radius: 0.75rem;
+                overflow: hidden;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+                border: 3px solid rgba(255, 255, 255, 0.08);
+                transition: transform 0.3s;
+            }
+            @media (min-width: 1024px) {
+                .press-clipping {
+                    width: 220px;
+                }
+            }
+            .press-clipping:hover {
+                transform: scale(1.03);
+            }
+            .press-clipping img {
+                width: 100%;
+                display: block;
+                filter: grayscale(15%);
+            }
+            .press-content {
+                color: var(--cream);
+            }
+            .press-label {
+                display: inline-block;
+                background: rgba(212, 136, 61, 0.15);
+                color: var(--primary-light);
+                padding: 0.3rem 0.875rem;
+                border-radius: 9999px;
+                font-size: 0.8rem;
+                font-weight: 600;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                margin-bottom: 0.75rem;
+            }
+            .press-source {
+                font-size: 0.875rem;
+                color: rgba(250, 246, 238, 0.45);
+                margin-bottom: 0.5rem;
+                letter-spacing: 0.04em;
+            }
+            .press-quote {
+                font-family: var(--font-serif);
+                font-size: 1.9rem;
+                line-height: 1.25;
+                color: var(--cream);
+                margin-bottom: 1rem;
+            }
+            @media (min-width: 1024px) {
+                .press-quote {
+                    font-size: 2.75rem;
+                }
+            }
+            .press-sub {
+                font-size: 0.9rem;
+                color: rgba(250, 246, 238, 0.6);
+                max-width: 34rem;
+                line-height: 1.7;
+                margin: 0 auto 1.5rem;
+            }
+            @media (min-width: 1024px) {
+                .press-sub {
+                    margin-left: 0;
+                }
+            }
+            .press-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                background: var(--primary);
+                color: var(--cream);
+                padding: 0.625rem 1.5rem;
+                border-radius: 9999px;
+                font-size: 0.875rem;
+                font-weight: 600;
+                transition: background 0.2s;
+            }
+            .press-link:hover {
+                background: var(--primary-dark);
+            }
+
+            /* ============================================================
        PRODUCTS
     ============================================================ */
             .products-section {
@@ -1627,6 +1751,39 @@
                     flex-direction: row;
                 }
             }
+
+            /* ── Floating order button (mobile only) ──────────────────── */
+            .fab-bestel {
+                display: none;
+                position: fixed;
+                bottom: 1.5rem;
+                right: 1.5rem;
+                z-index: 990;
+                align-items: center;
+                gap: 0.45rem;
+                padding: 0.85rem 1.4rem;
+                background: var(--primary);
+                color: #fff;
+                border-radius: 2rem;
+                font-size: 1rem;
+                font-weight: 700;
+                text-decoration: none;
+                box-shadow: 0 4px 18px rgba(212, 136, 61, 0.45);
+                transition:
+                    background 0.2s,
+                    transform 0.15s,
+                    box-shadow 0.2s;
+            }
+            .fab-bestel:hover {
+                background: var(--primary-dark);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 22px rgba(212, 136, 61, 0.55);
+            }
+            @media (max-width: 767px) {
+                .fab-bestel {
+                    display: inline-flex;
+                }
+            }
         </style>
     </head>
     <body>
@@ -1790,223 +1947,6 @@
                             voor iedereen.
                         </p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================================
-       STORY
-  ============================================================ -->
-        <section
-            id="verhaal"
-            class="story-section"
-            aria-labelledby="story-heading"
-        >
-            <div class="container">
-                <div class="story-grid">
-                    <!-- Visual -->
-                    <div class="story-visual">
-                        <div class="story-quote-card">
-                            <i data-lucide="quote"></i>
-                            <blockquote>
-                                &ldquo;(H)eerlijke ambachtelijke
-                                bakkerijproducten die lactosevrij en
-                                melkeiwitvrij zijn.&rdquo;
-                            </blockquote>
-                            <div class="story-divider"></div>
-                            <p class="story-author">Hans Van Bedts</p>
-                        </div>
-                        <div class="story-badge">
-                            <div class="story-badge-icon">
-                                <i data-lucide="award"></i>
-                            </div>
-                            <div>
-                                <div class="story-badge-title">
-                                    Erkende Streekproducten uit
-                                </div>
-                                <div class="story-badge-sub">
-                                    Vlaams-Brabant in assortiment
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Text -->
-                    <div class="story-text">
-                        <span class="section-label">Ons Verhaal</span>
-                        <h2 id="story-heading" class="section-heading">
-                            Bakken vanuit<br />
-                            <span class="accent">passie &amp; nood</span>
-                        </h2>
-                        <p>
-                            Hans is allergisch voor melk. Hij merkte dat echte
-                            lactosevrije bakkerijproducten bijna niet te vinden
-                            zijn, want zelfs gewoon brood bevat vaak
-                            melkbestanddelen.
-                        </p>
-                        <p>
-                            Daarom begon hij zelf te bakken, eerst voor
-                            zichzelf, al snel ook voor anderen. Hij gebruikt
-                            <strong
-                                >bio-sojadrank en glutenvrije bio haverdrank van
-                                LIMA</strong
-                            >
-                            in plaats van gewone melk.
-                        </p>
-                        <p>
-                            Proef van heerlijke slagroomtaarten zonder lactose.
-                            Met plantaardige slagroom, vol van smaak, maar met
-                            minder vet en cholesterol.
-                        </p>
-                        <p class="bold">
-                            Dat is lekker en gezond, voor iedereen.
-                        </p>
-                        <div class="story-tags">
-                            <span class="story-tag">Geen melk</span>
-                            <span class="story-tag">Geen lactose</span>
-                            <span class="story-tag"
-                                >Bio-sojadrank & glutenvrije bio haverdrank van
-                                LIMA</span
-                            >
-                            <span class="story-tag">Minder cholesterol</span>
-                            <span class="story-tag">Vol smaak</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================================
-       PRODUCTS
-  ============================================================ -->
-        <section
-            id="producten"
-            class="products-section"
-            aria-labelledby="products-heading"
-        >
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-label">Assortiment</span>
-                    <h2 id="products-heading" class="section-heading">
-                        Onze Producten
-                    </h2>
-                    <p class="section-sub">
-                        Alles 100% plantaardig en lactosevrij, van dagelijks
-                        brood tot feestelijk gebak.
-                    </p>
-                    <a
-                        href="assets/data/producten.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn-outline section-cta"
-                    >
-                        <i data-lucide="file-down"></i>
-                        Prijslijst downloaden
-                    </a>
-                </div>
-                <div class="products-grid">
-                    <article class="product-card">
-                        <div class="product-img">
-                            <img
-                                src="assets/img/20180210_150533.jpg"
-                                alt="Vers ambachtelijk speltbrood van Bakkerij Hans"
-                                loading="lazy"
-                            />
-                            <span class="product-badge badge-0"
-                                ><i data-lucide="croissant"></i> Brood</span
-                            >
-                        </div>
-                        <div class="product-body">
-                            <h3>Brood</h3>
-                            <p>
-                                Wij bakken verschillende soorten brood, altijd
-                                zonder melk of lactose. In ons assortiment ook
-                                broden met spelt, van nature glutenarm (niet
-                                glutenvrij).
-                            </p>
-                            <div class="product-tags">
-                                <span class="product-tag ptag-0">Spelt</span>
-                                <span class="product-tag ptag-0"
-                                    >Lactosevrij</span
-                                >
-                                <span class="product-tag ptag-0"
-                                    >Plantaardig</span
-                                >
-                            </div>
-                            <a href="#markten" class="product-link plink-0"
-                                >Waar te vinden <i data-lucide="arrow-right"></i
-                            ></a>
-                        </div>
-                    </article>
-
-                    <article class="product-card">
-                        <div class="product-img">
-                            <img
-                                src="assets/img/20180210_150619.jpg"
-                                alt="Lactosevrije patisserie en taarten van Bakkerij Hans"
-                                loading="lazy"
-                            />
-                            <span class="product-badge badge-1"
-                                ><i data-lucide="cake-slice"></i>
-                                Patisserie</span
-                            >
-                        </div>
-                        <div class="product-body">
-                            <h3>Taarten &amp; Gebak</h3>
-                            <p>
-                                Van slagroomtaarten tot fijn gebak, volledig
-                                lactosevrij. Wij gebruiken allergeenvrije
-                                slagroom. Lekker én lichter.
-                            </p>
-                            <div class="product-tags">
-                                <span class="product-tag ptag-1"
-                                    >Feestgebak</span
-                                >
-                                <span class="product-tag ptag-1"
-                                    >Slagroomtaart</span
-                                >
-                                <span class="product-tag ptag-1"
-                                    >Lactosevrij</span
-                                >
-                            </div>
-                            <a href="#markten" class="product-link plink-1"
-                                >Waar te vinden <i data-lucide="arrow-right"></i
-                            ></a>
-                        </div>
-                    </article>
-
-                    <article class="product-card">
-                        <div class="product-img">
-                            <img
-                                src="assets/img/20180210_150449.jpg"
-                                alt="Feestdagenassortiment van Bakkerij Hans, lactosevrij gebak"
-                                loading="lazy"
-                            />
-                            <span class="product-badge badge-2"
-                                ><i data-lucide="star"></i> Feestdagen</span
-                            >
-                        </div>
-                        <div class="product-body">
-                            <h3>Feestdagenassortiment</h3>
-                            <p>
-                                Speciaal aanbod voor de feestdagen: Pasen,
-                                Kerst, Nieuwjaar en meer. Vraag op tijd of uw
-                                keuze beschikbaar is en neem contact op per
-                                e-mail.
-                            </p>
-                            <div class="product-tags">
-                                <span class="product-tag ptag-2"
-                                    >Seizoensgebonden</span
-                                >
-                                <span class="product-tag ptag-2"
-                                    >Op bestelling</span
-                                >
-                            </div>
-                            <a href="#markten" class="product-link plink-2"
-                                >Waar te vinden <i data-lucide="arrow-right"></i
-                            ></a>
-                        </div>
-                    </article>
                 </div>
             </div>
         </section>
@@ -2186,6 +2126,270 @@
                             </li>
                         </ul>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       STORY
+  ============================================================ -->
+        <section
+            id="verhaal"
+            class="story-section"
+            aria-labelledby="story-heading"
+        >
+            <div class="container">
+                <div class="story-grid">
+                    <!-- Visual -->
+                    <div class="story-visual">
+                        <div class="story-quote-card">
+                            <i data-lucide="quote"></i>
+                            <blockquote>
+                                &ldquo;(H)eerlijke ambachtelijke
+                                bakkerijproducten die lactosevrij en
+                                melkeiwitvrij zijn.&rdquo;
+                            </blockquote>
+                            <div class="story-divider"></div>
+                            <p class="story-author">Hans Van Bedts</p>
+                        </div>
+                        <div class="story-badge">
+                            <div class="story-badge-icon">
+                                <i data-lucide="award"></i>
+                            </div>
+                            <div>
+                                <div class="story-badge-title">
+                                    Erkende Streekproducten uit
+                                </div>
+                                <div class="story-badge-sub">
+                                    Vlaams-Brabant in assortiment
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text -->
+                    <div class="story-text">
+                        <span class="section-label">Ons Verhaal</span>
+                        <h2 id="story-heading" class="section-heading">
+                            Bakken vanuit<br />
+                            <span class="accent">passie &amp; nood</span>
+                        </h2>
+                        <p>
+                            Hans is allergisch voor melk. Hij merkte dat echte
+                            lactosevrije bakkerijproducten bijna niet te vinden
+                            zijn, want zelfs gewoon brood bevat vaak
+                            melkbestanddelen.
+                        </p>
+                        <p>
+                            Daarom begon hij zelf te bakken, eerst voor
+                            zichzelf, al snel ook voor anderen. Hij gebruikt
+                            <strong
+                                >bio-sojadrank en glutenvrije bio haverdrank van
+                                LIMA</strong
+                            >
+                            in plaats van gewone melk.
+                        </p>
+                        <p>
+                            Proef van heerlijke slagroomtaarten zonder lactose.
+                            Met plantaardige slagroom, vol van smaak, maar met
+                            minder vet en cholesterol.
+                        </p>
+                        <p class="bold">
+                            Dat is lekker en gezond, voor iedereen.
+                        </p>
+                        <div class="story-tags">
+                            <span class="story-tag">Geen melk</span>
+                            <span class="story-tag">Geen lactose</span>
+                            <span class="story-tag"
+                                >Bio-sojadrank & glutenvrije bio haverdrank van
+                                LIMA</span
+                            >
+                            <span class="story-tag">Minder cholesterol</span>
+                            <span class="story-tag">Vol smaak</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       PRESS
+  ============================================================ -->
+        <section class="press-section" aria-label="In de pers">
+            <div class="container">
+                <div class="press-inner">
+                    <a
+                        href="assets/data/artikel.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="press-clipping"
+                        aria-label="Lees het krantenartikel over Bakkerij Hans"
+                    >
+                        <img
+                            src="assets/data/artikel-preview.jpg"
+                            alt="Krantenartikel Het Laatste Nieuws over Bakkerij Hans"
+                            width="220"
+                            height="363"
+                            loading="lazy"
+                        />
+                    </a>
+                    <div class="press-content">
+                        <span class="press-label">In de pers</span>
+                        <p class="press-source">
+                            Het Laatste Nieuws, Bart Mertens
+                        </p>
+                        <p class="press-quote">
+                            &laquo;Er is g&eacute;&eacute;n smaakverlies&raquo;
+                        </p>
+                        <p class="press-sub">
+                            Bakker Hans (40) is allergisch voor melk en verkoopt
+                            op de markt ambachtelijk lactosevrij brood en
+                            patisserie.
+                        </p>
+                        <a
+                            href="assets/data/artikel.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="press-link"
+                        >
+                            <i data-lucide="newspaper"></i> Lees het artikel
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+       PRODUCTS
+  ============================================================ -->
+        <section
+            id="producten"
+            class="products-section"
+            aria-labelledby="products-heading"
+        >
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Assortiment</span>
+                    <h2 id="products-heading" class="section-heading">
+                        Onze Producten
+                    </h2>
+                    <p class="section-sub">
+                        Alles 100% plantaardig en lactosevrij, van dagelijks
+                        brood tot feestelijk gebak.
+                    </p>
+                    <a
+                        href="assets/data/producten.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn-outline section-cta"
+                    >
+                        <i data-lucide="file-down"></i>
+                        Prijslijst downloaden
+                    </a>
+                </div>
+                <div class="products-grid">
+                    <article class="product-card">
+                        <div class="product-img">
+                            <img
+                                src="assets/img/20180210_150533.jpg"
+                                alt="Vers ambachtelijk speltbrood van Bakkerij Hans"
+                                loading="lazy"
+                            />
+                            <span class="product-badge badge-0"
+                                ><i data-lucide="croissant"></i> Brood</span
+                            >
+                        </div>
+                        <div class="product-body">
+                            <h3>Brood</h3>
+                            <p>
+                                Wij bakken verschillende soorten brood, altijd
+                                zonder melk of lactose. In ons assortiment ook
+                                broden met spelt, van nature glutenarm (niet
+                                glutenvrij).
+                            </p>
+                            <div class="product-tags">
+                                <span class="product-tag ptag-0">Spelt</span>
+                                <span class="product-tag ptag-0"
+                                    >Lactosevrij</span
+                                >
+                                <span class="product-tag ptag-0"
+                                    >Plantaardig</span
+                                >
+                            </div>
+                            <a href="#markten" class="product-link plink-0"
+                                >Waar te vinden <i data-lucide="arrow-right"></i
+                            ></a>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-img">
+                            <img
+                                src="assets/img/20180210_150619.jpg"
+                                alt="Lactosevrije patisserie en taarten van Bakkerij Hans"
+                                loading="lazy"
+                            />
+                            <span class="product-badge badge-1"
+                                ><i data-lucide="cake-slice"></i>
+                                Patisserie</span
+                            >
+                        </div>
+                        <div class="product-body">
+                            <h3>Taarten &amp; Gebak</h3>
+                            <p>
+                                Van slagroomtaarten tot fijn gebak, volledig
+                                lactosevrij. Wij gebruiken allergeenvrije
+                                slagroom. Lekker én lichter.
+                            </p>
+                            <div class="product-tags">
+                                <span class="product-tag ptag-1"
+                                    >Feestgebak</span
+                                >
+                                <span class="product-tag ptag-1"
+                                    >Slagroomtaart</span
+                                >
+                                <span class="product-tag ptag-1"
+                                    >Lactosevrij</span
+                                >
+                            </div>
+                            <a href="#markten" class="product-link plink-1"
+                                >Waar te vinden <i data-lucide="arrow-right"></i
+                            ></a>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-img">
+                            <img
+                                src="assets/img/20180210_150449.jpg"
+                                alt="Feestdagenassortiment van Bakkerij Hans, lactosevrij gebak"
+                                loading="lazy"
+                            />
+                            <span class="product-badge badge-2"
+                                ><i data-lucide="star"></i> Feestdagen</span
+                            >
+                        </div>
+                        <div class="product-body">
+                            <h3>Feestdagenassortiment</h3>
+                            <p>
+                                Speciaal aanbod voor de feestdagen: Pasen,
+                                Kerst, Nieuwjaar en meer. Vraag op tijd of uw
+                                keuze beschikbaar is en neem contact op per
+                                e-mail.
+                            </p>
+                            <div class="product-tags">
+                                <span class="product-tag ptag-2"
+                                    >Seizoensgebonden</span
+                                >
+                                <span class="product-tag ptag-2"
+                                    >Op bestelling</span
+                                >
+                            </div>
+                            <a href="#markten" class="product-link plink-2"
+                                >Waar te vinden <i data-lucide="arrow-right"></i
+                            ></a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -2518,6 +2722,11 @@
                 </div>
             </div>
         </footer>
+
+        <!-- Mobile FAB: always-visible order button -->
+        <a href="#markten" class="fab-bestel" aria-label="Bestel nu">
+            <i data-lucide="shopping-bag"></i> Bestel nu
+        </a>
 
         <!-- Lucide Icons CDN -->
         <script src="assets/js/lucide.min.js"></script>
