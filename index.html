@@ -41,7 +41,7 @@
                 "slogan": "Ambachtelijke Bakkerij Hans | Lactosevrij & Plantaardig",
                 "description": "(H)eerlijke ambachtelijke bakkerijproducten, volledig lactosevrij en melkeiwitvrij. Brood, patisserie en feestgebak, bijna 100% op plantaardige basis in Tielt-Winge, alle allergenen duidelijk aangegeven.",
                 "url": "https://bakkerijhans.be",
-                "telephone": "+32495823689",
+                "telephone": "+3216501153",
                 "email": "hans@bakkerijhans.be",
                 "address": {
                     "@type": "PostalAddress",
@@ -87,7 +87,7 @@
                 "logo": "https://bakkerijhans.be/assets/img/20180210_150619.jpg",
                 "description": "Ambachtelijke bakkerij in Tielt-Winge met volledig lactosevrij en melkeiwitvrij assortiment: brood, patisserie en feestgebak op bijna 100% plantaardige basis.",
                 "email": "hans@bakkerijhans.be",
-                "telephone": "+32495823689",
+                "telephone": "+3216501153",
                 "sameAs": [
                     "https://www.facebook.com/BakkerijHans/"
                 ]
@@ -136,7 +136,7 @@
                 -webkit-font-smoothing: antialiased;
             }
             [id] {
-                scroll-margin-top: 120px;
+                scroll-margin-top: calc(80px + var(--notice-height, 0px));
             }
             a {
                 text-decoration: none;
@@ -267,6 +267,9 @@
                 display: flex;
                 justify-content: center;
             }
+            .notice-bar[hidden] {
+                display: none;
+            }
             .notice-bar p {
                 display: flex;
                 align-items: center;
@@ -274,6 +277,12 @@
                 flex-wrap: wrap;
                 gap: 0.25rem 0.5rem;
                 margin: 0;
+                min-width: 0;
+            }
+            .notice-bar span,
+            .notice-bar a {
+                max-width: 100%;
+                overflow-wrap: anywhere;
             }
             .notice-bar svg {
                 width: 1rem;
@@ -286,9 +295,9 @@
                 font-weight: 600;
                 text-decoration: underline;
                 text-underline-offset: 2px;
-                white-space: nowrap;
             }
-            .notice-bar a:hover {
+            .notice-bar a:hover,
+            .notice-bar a:focus-visible {
                 color: var(--cream);
             }
             .navbar {
@@ -1825,14 +1834,17 @@
        NAVBAR
   ============================================================ -->
         <header class="navbar" id="navbar">
-            <div class="notice-bar" role="status">
+            <div
+                class="notice-bar"
+                id="notice-bar"
+                role="status"
+                aria-atomic="true"
+                hidden
+            >
                 <p>
-                    <i data-lucide="phone-off" aria-hidden="true"></i>
-                    <span>Ons vaste nummer is tijdelijk niet bereikbaar.</span>
-                    <span
-                        >Bel ons op
-                        <a href="tel:+32495823689">0495 82 36 89</a>.</span
-                    >
+                    <i data-lucide="info" aria-hidden="true"></i>
+                    <span id="notice-message"></span>
+                    <a id="notice-link" hidden></a>
                 </p>
             </div>
             <nav class="nav-inner" aria-label="Hoofdnavigatie">
@@ -2591,13 +2603,13 @@
                                     </p>
                                 </div>
                             </a>
-                            <a href="tel:+32495823689" class="cd-item">
+                            <a href="tel:+3216501153" class="cd-item">
                                 <div class="cd-icon">
                                     <i data-lucide="phone"></i>
                                 </div>
                                 <div>
                                     <p class="cd-label">Telefoon</p>
-                                    <p class="cd-value">0495 82 36 89</p>
+                                    <p class="cd-value">+32 16 50 11 53</p>
                                 </div>
                             </a>
                             <a
@@ -2704,9 +2716,9 @@
                                     Tielt-Winge</span
                                 >
                             </a>
-                            <a href="tel:+32495823689" class="fc-item">
+                            <a href="tel:+3216501153" class="fc-item">
                                 <i data-lucide="phone"></i>
-                                <span>0495 82 36 89</span>
+                                <span>+32 16 50 11 53</span>
                             </a>
                             <a
                                 href="mailto:hans@bakkerijhans.be"
@@ -2786,6 +2798,83 @@
                 },
                 { passive: true },
             );
+
+            const noticeBar = document.getElementById("notice-bar");
+            const noticeMessage = document.getElementById("notice-message");
+            const noticeLink = document.getElementById("notice-link");
+
+            new ResizeObserver(() => {
+                document.documentElement.style.setProperty(
+                    "--notice-height",
+                    `${noticeBar.getBoundingClientRect().height}px`,
+                );
+            }).observe(noticeBar);
+
+            async function loadBanner() {
+                const response = await fetch("banner.json", { cache: "no-store" });
+                if (!response.ok) {
+                    throw new Error(
+                        `banner.json returned HTTP ${response.status}`,
+                    );
+                }
+
+                const config = await response.json();
+                if (
+                    !config ||
+                    typeof config !== "object" ||
+                    Array.isArray(config)
+                ) {
+                    throw new Error("banner.json must contain an object.");
+                }
+                if (Object.keys(config).length === 0) {
+                    noticeBar.hidden = true;
+                    return;
+                }
+                if (
+                    typeof config.message !== "string" ||
+                    !config.message.trim()
+                ) {
+                    throw new Error(
+                        "The banner message must be a non-empty string.",
+                    );
+                }
+
+                let linkUrl;
+                if (config.link !== undefined) {
+                    const link = config.link;
+                    if (
+                        !link ||
+                        typeof link.label !== "string" ||
+                        !link.label.trim() ||
+                        typeof link.url !== "string" ||
+                        !link.url.trim()
+                    ) {
+                        throw new Error("The banner link needs a label and URL.");
+                    }
+                    linkUrl = new URL(link.url, document.baseURI);
+                    if (
+                        !["http:", "https:", "tel:", "mailto:"].includes(
+                            linkUrl.protocol,
+                        )
+                    ) {
+                        throw new Error(
+                            "The banner link URL must use HTTP(S), tel or mailto.",
+                        );
+                    }
+                }
+
+                noticeMessage.textContent = config.message.trim();
+                noticeLink.hidden = !linkUrl;
+                if (linkUrl) {
+                    noticeLink.textContent = config.link.label.trim();
+                    noticeLink.href = linkUrl.href;
+                }
+                noticeBar.hidden = false;
+            }
+
+            loadBanner().catch((error) => {
+                console.error("Unable to load the website banner:", error);
+            });
 
             // ── Mobile menu ────────────────────────────────────────────
             const hamburger = document.getElementById("hamburger");
