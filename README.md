@@ -22,9 +22,13 @@ Use the hostname, account, port, and remote directory from your working FileZill
 connection. If the port differs from `21`, add a repository variable named
 `FTP_PORT` under the **Variables** tab.
 
-The server must support explicit FTP over TLS and present a valid, trusted
-certificate for `FTP_SERVER`. The workflow rejects invalid certificates.
-Use an FTP account restricted to the website directory.
+The server must support explicit FTP over TLS. The workflow uses `security: loose`
+to allow the provider's FTP hostname when its certificate names the shared
+hosting server instead. Transfers remain encrypted, but certificate verification
+is disabled, so an attacker impersonating the server could obtain FTP credentials
+and website files. Prefer `security: strict` when the provider supplies a
+certificate matching `FTP_SERVER`. Use an FTP account restricted to the website
+directory.
 
 The upload contains `index.html`, `banner.json`, `llms.txt`, `llms-full.txt`,
 `robots.txt`, `sitemap.xml`, and `assets/`. Git metadata, workflow files, and this

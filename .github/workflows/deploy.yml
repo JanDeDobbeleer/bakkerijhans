@@ -60,5 +60,5 @@ jobs:
           server-dir: ${{ secrets.FTP_SERVER_DIR }}
           port: ${{ vars.FTP_PORT || '21' }}
           protocol: ftps
-          security: strict
+          security: loose
           local-dir: ${{ runner.temp }}/site/
