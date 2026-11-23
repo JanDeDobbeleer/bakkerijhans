@@ -55,3 +55,11 @@ Columns are found by header name (see `FIELDS` in `admin/etiketten.js`), not by
 position. If a header is not recognised, the page asks which column to use and
 remembers the choice in the browser. Do not commit order exports; `.gitignore`
 excludes `*.xlsx`.
+
+Vendored scripts in `assets/js/`:
+
+- `xlsx.mini.min.js`: SheetJS 0.20.3 from `cdn.sheetjs.com` (the npm `xlsx`
+  package is outdated and vulnerable), SHA-256
+  `0cb353f830d7288385492c83d277b058ddeac664ca51cf1393aa1fd3e2b70939`.
+- `lucide.min.js`: lucide 1.78.0 from npm, SHA-256
+  `4c251f4988c97c7fe791badcaf5247391bb8a2e4fc4762ac9769d751005667c8`.
