@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="nl">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex, nofollow" />
+        <title>Etiketten afdrukken – Bakkerij Hans</title>
+        <style>
+            :root {
+                --primary: #d4883d;
+                --primary-dark: #b26a2a;
+                --cream: #faf6ee;
+                --cream-dark: #f2ebdf;
+                --bark: #2c2c2c;
+                --bark-light: #565656;
+                --border: #d8cdbb;
+                --danger: #b42318;
+            }
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                background: var(--cream-dark);
+                color: var(--bark);
+                font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+                line-height: 1.5;
+            }
+            .controls {
+                max-width: 60rem;
+                margin: 0 auto;
+                padding: 1.5rem 1rem 1rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+                margin: 0 0 0.25rem;
+            }
+            .hint {
+                color: var(--bark-light);
+                margin: 0 0 1rem;
+            }
+            .panel {
+                background: var(--cream);
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                align-items: flex-end;
+            }
+            label.field {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+                font-size: 0.875rem;
+                font-weight: 600;
+            }
+            select,
+            input[type="number"],
+            input[type="file"] {
+                font: inherit;
+                padding: 0.4rem 0.5rem;
+                border: 1px solid var(--border);
+                border-radius: 6px;
+                background: #fff;
+                color: var(--bark);
+            }
+            input[type="number"] {
+                width: 5.5rem;
+            }
+            button {
+                font: inherit;
+                font-weight: 600;
+                padding: 0.55rem 1.1rem;
+                border-radius: 6px;
+                border: 1px solid var(--primary-dark);
+                background: var(--primary-dark);
+                color: #fff;
+                cursor: pointer;
+            }
+            button.secondary {
+                background: #fff;
+                color: var(--primary-dark);
+            }
+            button:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+            :focus-visible {
+                outline: 3px solid var(--primary);
+                outline-offset: 2px;
+            }
+            .msg {
+                margin: 0.75rem 0 0;
+                font-size: 0.9rem;
+            }
+            .msg.error {
+                color: var(--danger);
+            }
+            .msg ul {
+                margin: 0.25rem 0 0 1.25rem;
+                padding: 0;
+            }
+            details summary {
+                cursor: pointer;
+                font-size: 0.875rem;
+                color: var(--bark-light);
+            }
+            [hidden] {
+                display: none !important;
+            }
+
+            /* ---- Sheet preview (screen) ---- */
+            .pages {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding: 0 1rem 2rem;
+            }
+            .page {
+                position: relative;
+                background: #fff;
+                box-shadow: 0 1px 6px rgb(0 0 0 / 0.25);
+                overflow: hidden;
+                flex: none;
+            }
+            .label {
+                position: absolute;
+                overflow: hidden;
+                padding: 1.6mm 3mm 1.2mm;
+                display: flex;
+                flex-direction: column;
+                color: #000;
+                font-family: Arial, Helvetica, sans-serif;
+                outline: 0.1mm dashed #cfcfcf;
+            }
+            .label .prod {
+                font-weight: 700;
+                font-size: 10.5pt;
+                line-height: 1.15;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .label .sub {
+                font-size: 8pt;
+                line-height: 1.2;
+                margin-top: 0.4mm;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            .label .sub .remark {
+                font-weight: 700;
+            }
+            .label .foot {
+                margin-top: auto;
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                gap: 2mm;
+            }
+            .label .who {
+                font-size: 9pt;
+                font-weight: 700;
+                line-height: 1.15;
+                min-width: 0;
+            }
+            .label .who span {
+                display: block;
+                font-weight: 400;
+                font-size: 7.5pt;
+            }
+            .label .who b {
+                display: block;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .label .no {
+                font-size: 24pt;
+                font-weight: 800;
+                line-height: 0.95;
+                flex: none;
+            }
+            .label .count {
+                font-weight: 700;
+            }
+            .label.small .prod {
+                font-size: 8.5pt;
+            }
+            .label.small .no {
+                font-size: 18pt;
+            }
+            .label.small .sub,
+            .label.small .who span {
+                font-size: 6.5pt;
+            }
+            .label.small .who {
+                font-size: 7.5pt;
+            }
+
+            @media print {
+                html,
+                body {
+                    background: #fff;
+                }
+                .controls {
+                    display: none !important;
+                }
+                .pages {
+                    display: block;
+                    padding: 0;
+                }
+                .page {
+                    box-shadow: none;
+                    break-after: page;
+                    page-break-after: always;
+                }
+                .page:last-child {
+                    break-after: auto;
+                    page-break-after: auto;
+                }
+                .label {
+                    outline: none;
+                }
+            }
+        </style>
+        <style id="page-style"></style>
+    </head>
+    <body>
+        <div class="controls">
+            <h1>Etiketten afdrukken</h1>
+            <p class="hint">
+                Kies het Excel-bestand met bestellingen. Er komt één etiket per
+                orderlijn. Het bestand blijft in je browser en wordt nergens
+                naartoe gestuurd.
+            </p>
+
+            <div class="panel">
+                <div class="row">
+                    <label class="field">
+                        Excel-bestand (.xlsx)
+                        <input
+                            type="file"
+                            id="file"
+                            accept=".xlsx,.xls,.csv"
+                        />
+                    </label>
+                </div>
+                <p class="msg" id="status" role="status"></p>
+                <div id="mapping" hidden></div>
+            </div>
+
+            <div class="panel" id="options" hidden>
+                <div class="row">
+                    <label class="field">
+                        Afhaaldatum
+                        <select id="dateFilter"></select>
+                    </label>
+                    <label class="field">
+                        Sorteren
+                        <select id="sort">
+                            <option value="order">Per bestelling (bestand)</option>
+                            <option value="customer">Per klant</option>
+                            <option value="product">Per product</option>
+                        </select>
+                    </label>
+                    <label class="field">
+                        Formaat
+                        <select id="format"></select>
+                    </label>
+                    <label class="field" id="skipField">
+                        Starten bij etiket
+                        <input type="number" id="skip" min="1" value="1" />
+                    </label>
+                    <button type="button" id="print">Afdrukken / PDF</button>
+                </div>
+                <details style="margin-top: 0.75rem">
+                    <summary>Uitlijning bijstellen</summary>
+                    <div class="row" style="margin-top: 0.5rem">
+                        <label class="field">
+                            Verschuiving horizontaal (mm)
+                            <input
+                                type="number"
+                                id="offX"
+                                step="0.1"
+                                value="0"
+                            />
+                        </label>
+                        <label class="field">
+                            Verschuiving verticaal (mm)
+                            <input
+                                type="number"
+                                id="offY"
+                                step="0.1"
+                                value="0"
+                            />
+                        </label>
+                    </div>
+                </details>
+                <p class="msg" id="summary"></p>
+                <p class="hint" style="margin: 0.5rem 0 0">
+                    Tip: kies in het printvenster schaal “100 %” en zet marges
+                    op “Geen”. Kies “Opslaan als PDF” om een PDF te bewaren.
+                </p>
+            </div>
+        </div>
+
+        <div class="pages" id="pages" aria-label="Voorbeeld van de etiketten"></div>
+
+        <script src="../assets/js/xlsx.mini.min.js"></script>
+        <script src="etiketten.js"></script>
+        <script>
+            (function () {
+                "use strict";
+                var E = window.Etiketten;
+                var MAP_KEY = "etiketten.mapping.v1";
+
+                var sheets = null; // [{name, rows}]
+                var parsed = null;
+
+                var $ = function (id) {
+                    return document.getElementById(id);
+                };
+
+                function loadMap() {
+                    try {
+                        return JSON.parse(localStorage.getItem(MAP_KEY)) || {};
+                    } catch (e) {
+                        return {};
+                    }
+                }
+                function saveMap(m) {
+                    try {
+                        localStorage.setItem(MAP_KEY, JSON.stringify(m));
+                    } catch (e) {}
+                }
+
+                function setStatus(msg, isError) {
+                    var el = $("status");
+                    el.textContent = msg || "";
+                    el.className = "msg" + (isError ? " error" : "");
+                }
+
+                // ---- Format select ----
+                Object.keys(E.FORMATS).forEach(function (key) {
+                    var o = document.createElement("option");
+                    o.value = key;
+                    o.textContent = E.FORMATS[key].name;
+                    $("format").appendChild(o);
+                });
+
+                // ---- File loading ----
+                $("file").addEventListener("change", function (ev) {
+                    var f = ev.target.files[0];
+                    if (!f) return;
+                    var reader = new FileReader();
+                    reader.onerror = function () {
+                        setStatus("Bestand kon niet gelezen worden.", true);
+                    };
+                    reader.onload = function () {
+                        try {
+                            var wb = XLSX.read(reader.result, { type: "array" });
+                            sheets = wb.SheetNames.map(function (n) {
+                                return {
+                                    name: n,
+                                    rows: XLSX.utils.sheet_to_json(
+                                        wb.Sheets[n],
+                                        { header: 1, raw: true, defval: "" },
+                                    ),
+                                };
+                            });
+                            parse();
+                        } catch (e) {
+                            sheets = null;
+                            setStatus(
+                                "Dit bestand kon niet geopend worden. Is het een Excel-bestand?",
+                                true,
+                            );
+                        }
+                    };
+                    reader.readAsArrayBuffer(f);
+                });
+
+                function parse() {
+                    var stored = loadMap();
+                    var extra = {};
+                    Object.keys(stored).forEach(function (field) {
+                        extra[field] = [E.norm(stored[field])];
+                    });
+                    parsed = E.parseWorkbook(sheets, extra);
+
+                    var blocking = parsed.missing;
+                    renderMapping(blocking);
+                    if (blocking.length) {
+                        $("options").hidden = true;
+                        $("pages").textContent = "";
+                        setStatus(
+                            "Niet alle kolommen werden herkend. Kies hieronder welke kolom bij elk veld hoort.",
+                            true,
+                        );
+                        return;
+                    }
+                    if (!parsed.lines.length) {
+                        $("options").hidden = true;
+                        $("pages").textContent = "";
+                        setStatus("Geen orderlijnen gevonden in dit bestand.", true);
+                        return;
+                    }
+                    setStatus(
+                        parsed.lines.length +
+                            " orderlijnen gevonden (blad “" +
+                            parsed.sheetInfo.lines +
+                            "”).",
+                    );
+                    fillDates();
+                    $("options").hidden = false;
+                    render();
+                }
+
+                function renderMapping(missing) {
+                    var box = $("mapping");
+                    box.textContent = "";
+                    if (!missing.length) {
+                        box.hidden = true;
+                        return;
+                    }
+                    box.hidden = false;
+                    var row = document.createElement("div");
+                    row.className = "row";
+                    var chosen = {};
+                    missing.forEach(function (field) {
+                        var wrap = document.createElement("label");
+                        wrap.className = "field";
+                        wrap.textContent = E.LABELS[field];
+                        var sel = document.createElement("select");
+                        var none = document.createElement("option");
+                        none.value = "";
+                        none.textContent = "– kies kolom –";
+                        sel.appendChild(none);
+                        parsed.headers.forEach(function (h) {
+                            var o = document.createElement("option");
+                            o.value = h;
+                            o.textContent = h;
+                            sel.appendChild(o);
+                        });
+                        sel.addEventListener("change", function () {
+                            chosen[field] = sel.value;
+                            btn.disabled = !Object.keys(chosen).some(function (k) {
+                                return chosen[k];
+                            });
+                        });
+                        wrap.appendChild(sel);
+                        row.appendChild(wrap);
+                    });
+                    var btn = document.createElement("button");
+                    btn.type = "button";
+                    btn.textContent = "Toepassen";
+                    btn.disabled = true;
+                    btn.addEventListener("click", function () {
+                        var m = loadMap();
+                        Object.keys(chosen).forEach(function (k) {
+                            if (chosen[k]) m[k] = chosen[k];
+                        });
+                        saveMap(m);
+                        parse();
+                    });
+                    row.appendChild(btn);
+                    box.appendChild(row);
+                }
+
+                function fillDates() {
+                    var sel = $("dateFilter");
+                    var prev = sel.value;
+                    sel.textContent = "";
+                    var all = document.createElement("option");
+                    all.value = "";
+                    all.textContent = "Alle datums";
+                    sel.appendChild(all);
+                    var seen = {};
+                    parsed.lines.forEach(function (l) {
+                        if (l.pickupKey && !seen[l.pickupKey])
+                            seen[l.pickupKey] = l.pickupText;
+                    });
+                    Object.keys(seen)
+                        .sort()
+                        .forEach(function (k) {
+                            var o = document.createElement("option");
+                            o.value = k;
+                            o.textContent = seen[k];
+                            sel.appendChild(o);
+                        });
+                    if (seen[prev]) sel.value = prev;
+                }
+
+                // ---- Rendering ----
+                function el(tag, cls, txt) {
+                    var e = document.createElement(tag);
+                    if (cls) e.className = cls;
+                    if (txt != null) e.textContent = txt;
+                    return e;
+                }
+                function mm(n) {
+                    return n.toFixed(2) + "mm";
+                }
+
+                function labelEl(slot, fmt) {
+                    var l = slot.line;
+                    var d = el("div", "label" + (fmt.h < 30 ? " small" : ""));
+                    d.style.left = mm(slot.x);
+                    d.style.top = mm(slot.y);
+                    d.style.width = mm(fmt.w);
+                    d.style.height = mm(fmt.h);
+
+                    var prod = el(
+                        "div",
+                        "prod",
+                        (l.qty !== "" ? l.qty + " × " : "") + l.product,
+                    );
+                    d.appendChild(prod);
+
+                    if (l.variant || l.remark) {
+                        var sub = el("div", "sub");
+                        if (l.variant) sub.appendChild(document.createTextNode(l.variant));
+                        if (l.variant && l.remark)
+                            sub.appendChild(document.createTextNode(" – "));
+                        if (l.remark) sub.appendChild(el("span", "remark", l.remark));
+                        d.appendChild(sub);
+                    }
+
+                    var foot = el("div", "foot");
+                    var who = el("div", "who");
+                    who.appendChild(el("b", null, l.customer));
+                    var meta = el("span");
+                    var count = el("span", "count", l.index + "/" + l.total);
+                    count.style.display = "inline";
+                    meta.appendChild(count);
+                    var when = [l.pickupText, l.time].filter(Boolean).join(" ");
+                    if (when) meta.appendChild(document.createTextNode("  " + when));
+                    who.appendChild(meta);
+                    foot.appendChild(who);
+                    foot.appendChild(el("div", "no", l.orderNo));
+                    d.appendChild(foot);
+                    return d;
+                }
+
+                function render() {
+                    if (!parsed || !parsed.lines.length) return;
+                    var fmt = E.FORMATS[$("format").value];
+                    var dateKey = $("dateFilter").value;
+                    var lines = parsed.lines.filter(function (l) {
+                        return !dateKey || l.pickupKey === dateKey;
+                    });
+                    lines = E.sortLines(lines, $("sort").value);
+
+                    var multi = fmt.cols * fmt.rows > 1;
+                    $("skipField").hidden = !multi;
+                    var skip = multi ? Math.max(1, +$("skip").value || 1) - 1 : 0;
+                    var offX = +$("offX").value || 0;
+                    var offY = +$("offY").value || 0;
+                    var pages = E.paginate(lines, fmt, skip, offX, offY);
+
+                    var pw = fmt.page ? fmt.page[0] : 210;
+                    var ph = fmt.page ? fmt.page[1] : 297;
+                    $("page-style").textContent =
+                        "@page { size: " + pw + "mm " + ph + "mm; margin: 0; }";
+
+                    var host = $("pages");
+                    host.textContent = "";
+                    pages.forEach(function (slots) {
+                        var p = el("div", "page");
+                        p.style.width = pw + "mm";
+                        p.style.height = ph + "mm";
+                        slots.forEach(function (s) {
+                            p.appendChild(labelEl(s, fmt));
+                        });
+                        host.appendChild(p);
+                    });
+
+                    var orders = {};
+                    lines.forEach(function (l) {
+                        orders[l.orderKey] = 1;
+                    });
+                    $("summary").textContent =
+                        lines.length +
+                        " etiketten voor " +
+                        Object.keys(orders).length +
+                        " bestellingen op " +
+                        pages.length +
+                        (pages.length === 1 ? " blad." : " bladen.");
+                    $("print").disabled = !lines.length;
+                }
+
+                ["dateFilter", "sort", "format", "skip", "offX", "offY"].forEach(
+                    function (id) {
+                        $(id).addEventListener("input", render);
+                    },
+                );
+                $("print").addEventListener("click", function () {
+                    window.print();
+                });
+            })();
+        </script>
+    </body>
+</html>

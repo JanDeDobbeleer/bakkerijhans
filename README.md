@@ -31,7 +31,7 @@ certificate matching `FTP_SERVER`. Use an FTP account restricted to the website
 directory.
 
 The upload contains `index.html`, `banner.json`, `llms.txt`, `llms-full.txt`,
-`robots.txt`, `sitemap.xml`, and `assets/`. Git metadata, workflow files, and this
+`robots.txt`, `sitemap.xml`, `assets/`, and `admin/`. Git metadata, workflow files, and this
 README stay out of the upload. Add any new public root files to the workflow's
 **Prepare public files** step.
 
@@ -43,3 +43,15 @@ server that the action has never tracked remain untouched. Keep the generated
 Deployments run one at a time without cancelling an active upload. Keep using
 GitHub for site updates after enabling deployment; a later deployment can
 overwrite manual changes made through FileZilla.
+
+## Label printing
+
+`/admin/etiketten.html` turns a "bestellingen" Excel export into labels, one
+per order line, for A4 sheets (2x8, 3x8) or a label printer. The page runs
+entirely in the browser: the file is never uploaded, and the page contains no
+customer data. It is not linked from the site and carries `noindex`.
+
+Columns are found by header name (see `FIELDS` in `admin/etiketten.js`), not by
+position. If a header is not recognised, the page asks which column to use and
+remembers the choice in the browser. Do not commit order exports; `.gitignore`
+excludes `*.xlsx`.
