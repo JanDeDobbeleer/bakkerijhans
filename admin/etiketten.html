@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="nl">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta
+            http-equiv="Content-Security-Policy"
+            content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'"
+        />
+        <title>Etiketten afdrukken – Bakkerij Hans</title>
+        <style>
+            :root {
+                --primary: #d4883d;
+                --primary-dark: #b26a2a;
+                --cream: #faf6ee;
+                --cream-dark: #f2ebdf;
+                --bark: #2c2c2c;
+                --bark-light: #565656;
+                --border: #d8cdbb;
+                --danger: #b42318;
+            }
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                background: var(--cream-dark);
+                color: var(--bark);
+                font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+                line-height: 1.5;
+            }
+            .controls {
+                max-width: 60rem;
+                margin: 0 auto;
+                padding: 1.5rem 1rem 1rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+                margin: 0 0 0.25rem;
+            }
+            .hint {
+                color: var(--bark-light);
+                margin: 0 0 1rem;
+            }
+            .panel {
+                background: var(--cream);
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                align-items: flex-end;
+            }
+            label.field {
+                display: flex;
+                flex-direction: column;
+                gap: 0.25rem;
+                font-size: 0.875rem;
+                font-weight: 600;
+            }
+            select,
+            input[type="number"],
+            input[type="file"] {
+                font: inherit;
+                padding: 0.4rem 0.5rem;
+                border: 1px solid var(--border);
+                border-radius: 6px;
+                background: #fff;
+                color: var(--bark);
+            }
+            input[type="number"] {
+                width: 5.5rem;
+            }
+            button {
+                font: inherit;
+                font-weight: 600;
+                padding: 0.55rem 1.1rem;
+                border-radius: 6px;
+                border: 1px solid var(--primary-dark);
+                background: var(--primary-dark);
+                color: #fff;
+                cursor: pointer;
+            }
+            button.secondary {
+                background: #fff;
+                color: var(--primary-dark);
+            }
+            button:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+            :focus-visible {
+                outline: 3px solid var(--primary);
+                outline-offset: 2px;
+            }
+            .msg {
+                margin: 0.75rem 0 0;
+                font-size: 0.9rem;
+            }
+            .msg.error {
+                color: var(--danger);
+            }
+            .msg.warn {
+                color: #8a4b00;
+            }
+            .msg ul {
+                margin: 0.25rem 0 0 1.25rem;
+                padding: 0;
+            }
+            details summary {
+                cursor: pointer;
+                font-size: 0.875rem;
+                color: var(--bark-light);
+            }
+            [hidden] {
+                display: none !important;
+            }
+
+            /* ---- Sheet preview (screen) ---- */
+            .pages {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding: 0 1rem 2rem;
+            }
+            .page {
+                position: relative;
+                background: #fff;
+                box-shadow: 0 1px 6px rgb(0 0 0 / 0.25);
+                overflow: hidden;
+                flex: none;
+            }
+            .label {
+                position: absolute;
+                overflow: hidden;
+                padding: 1.6mm 3mm 1.2mm;
+                display: flex;
+                flex-direction: column;
+                color: #000;
+                font-family: Arial, Helvetica, sans-serif;
+                outline: 0.1mm dashed #cfcfcf;
+            }
+            .label .prod {
+                font-weight: 700;
+                font-size: 10.5pt;
+                line-height: 1.15;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .label .sub {
+                font-size: 8pt;
+                line-height: 1.2;
+                margin-top: 0.4mm;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            .label .sub .remark {
+                font-weight: 700;
+            }
+            .label .foot {
+                margin-top: auto;
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                gap: 2mm;
+            }
+            .label .who {
+                font-size: 9pt;
+                font-weight: 700;
+                line-height: 1.15;
+                min-width: 0;
+            }
+            .label .who span {
+                display: block;
+                margin-top: 2mm;
+                font-weight: 400;
+                font-size: 7.5pt;
+            }
+            .label .who b {
+                display: block;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .label .no {
+                font-size: 36pt;
+                font-weight: 800;
+                line-height: 0.9;
+                flex: none;
+            }
+            .label .count {
+                font-weight: 700;
+            }
+            .label.small .prod {
+                font-size: 8.5pt;
+            }
+            .label.small .no {
+                font-size: 26pt;
+            }
+            .label.small .sub,
+            .label.small .who span {
+                font-size: 6.5pt;
+            }
+            .label.small .who {
+                font-size: 7.5pt;
+            }
+
+            @media print {
+                html,
+                body {
+                    background: #fff;
+                }
+                .controls {
+                    display: none !important;
+                }
+                .pages {
+                    display: block;
+                    padding: 0;
+                }
+                .page {
+                    box-shadow: none;
+                    break-after: page;
+                    page-break-after: always;
+                }
+                .page:last-child {
+                    break-after: auto;
+                    page-break-after: auto;
+                }
+                .label {
+                    outline: none;
+                }
+            }
+        </style>
+        <style id="page-style"></style>
+    </head>
+    <body>
+        <div class="controls">
+            <h1>Etiketten afdrukken</h1>
+
+            <div class="panel">
+                <div class="row">
+                    <label class="field">
+                        Excel-bestand (.xlsx)
+                        <input
+                            type="file"
+                            id="file"
+                            accept=".xlsx,.xls,.csv"
+                        />
+                    </label>
+                </div>
+                <p class="msg" id="status" role="status"></p>
+                <button type="button" class="secondary" id="resetMap" hidden>
+                    Kolomkeuzes wissen
+                </button>
+                <div id="mapping" hidden></div>
+            </div>
+
+            <div class="panel" id="options" hidden>
+                <div class="row">
+                    <label class="field">
+                        Afhaaldatum
+                        <select id="dateFilter"></select>
+                    </label>
+                    <label class="field">
+                        Sorteren
+                        <select id="sort">
+                            <option value="order">Per bestelling (bestand)</option>
+                            <option value="customer">Per klant</option>
+                            <option value="product">Per product</option>
+                        </select>
+                    </label>
+                    <label class="field">
+                        Formaat
+                        <select id="format"></select>
+                    </label>
+                    <label class="field" id="skipField">
+                        Starten bij etiket
+                        <input type="number" id="skip" min="1" value="1" />
+                    </label>
+                    <button type="button" id="print">Afdrukken / PDF</button>
+                </div>
+                <details style="margin-top: 0.75rem">
+                    <summary>Uitlijning bijstellen</summary>
+                    <div class="row" style="margin-top: 0.5rem">
+                        <label class="field">
+                            Verschuiving horizontaal (mm)
+                            <input
+                                type="number"
+                                id="offX"
+                                step="0.1"
+                                value="0"
+                            />
+                        </label>
+                        <label class="field">
+                            Verschuiving verticaal (mm)
+                            <input
+                                type="number"
+                                id="offY"
+                                step="0.1"
+                                value="0"
+                            />
+                        </label>
+                    </div>
+                </details>
+                <p class="msg" id="summary"></p>
+                <p class="hint" style="margin: 0.5rem 0 0">
+                    Tip: kies in het printvenster schaal “100 %” en zet marges
+                    op “Geen”. Kies “Opslaan als PDF” om een PDF te bewaren.
+                </p>
+            </div>
+        </div>
+
+        <div class="pages" id="pages" aria-label="Voorbeeld van de etiketten"></div>
+
+        <script src="../assets/js/xlsx.mini.min.js" defer></script>
+        <script src="etiketten.js" defer></script>
+        <script src="app.js" defer></script>
+    </body>
+</html>
